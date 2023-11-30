@@ -33,9 +33,7 @@ void LoginPage::on_loginBtn_clicked()
 
 void LoginPage::on_signupBtn_clicked()
 {
-    this->hide();
-    RegisterPage *registerpage = new RegisterPage();
-    registerpage->showMaximized();
+    ui->stackedWidget_2->setCurrentIndex(1);
 }
 
 
@@ -51,4 +49,10 @@ void LoginPage::on_signupBtn_clicked()
 
 
 
+
+
+void LoginPage::on_loginBtn_2_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(0);
+}
 

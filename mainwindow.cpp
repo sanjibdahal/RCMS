@@ -18,10 +18,10 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     this->hide();
-//    LoginPage *loginpage = new LoginPage();
-//    loginpage->showMaximized();
-    AdminDashboard *admindashboard = new AdminDashboard();
-    admindashboard->showMaximized();
+    LoginPage *loginpage = new LoginPage();
+    loginpage->showMaximized();
+//    AdminDashboard *admindashboard = new AdminDashboard();
+//    admindashboard->showMaximized();
 
 }
 

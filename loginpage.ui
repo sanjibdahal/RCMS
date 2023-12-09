@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>716</width>
-    <height>718</height>
+    <width>775</width>
+    <height>688</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dhulikhel Recreational Center - Login Page</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="logo.qrc">
+   <iconset resource="images.qrc">
     <normaloff>:/images/logo.png</normaloff>:/images/logo.png</iconset>
   </property>
   <property name="styleSheet">
@@ -327,6 +327,19 @@
               <bool>false</bool>
              </property>
             </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
            </item>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout">
@@ -833,7 +846,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="logo.qrc"/>
+  <include location="images.qrc"/>
  </resources>
  <connections/>
 </ui>

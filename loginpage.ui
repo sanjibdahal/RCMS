@@ -102,7 +102,7 @@
        <enum>QFrame::Raised</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="stackedWidget_2Page1">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -532,7 +532,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEdit_password_2">
+               <widget class="QLineEdit" name="lineEdit_username_2">
                 <property name="minimumSize">
                  <size>
                   <width>240</width>
@@ -610,7 +610,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEdit_password_3">
+               <widget class="QLineEdit" name="lineEdit_password_2">
                 <property name="minimumSize">
                  <size>
                   <width>240</width>

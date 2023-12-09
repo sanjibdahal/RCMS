@@ -2,6 +2,7 @@
 #define ADMINDASHBOARD_H
 
 #include <QMainWindow>
+#include "loginpage.h"
 
 namespace Ui {
 class AdminDashboard;
@@ -14,6 +15,9 @@ class AdminDashboard : public QMainWindow
 public:
     explicit AdminDashboard(QWidget *parent = nullptr);
     ~AdminDashboard();
+
+private slots:
+    void on_logoutBtn_clicked();
 
 private:
     Ui::AdminDashboard *ui;

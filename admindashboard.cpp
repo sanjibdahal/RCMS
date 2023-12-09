@@ -12,3 +12,11 @@ AdminDashboard::~AdminDashboard()
 {
     delete ui;
 }
+
+void AdminDashboard::on_logoutBtn_clicked()
+{
+    LoginPage *loginpage = new LoginPage();
+    loginpage->showMaximized();
+    this->close();
+}
+

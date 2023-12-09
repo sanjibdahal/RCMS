@@ -4,6 +4,11 @@
 #include <QMainWindow>
 #include "registerpage.h"
 #include "admindashboard.h"
+#include <QtSql>
+#include <QDebug>
+#include <QFileInfo>
+#include <QMessageBox>
+#include <QRegularExpression>
 
 namespace Ui {
 class LoginPage;
@@ -26,8 +31,15 @@ private slots:
 
     void on_loginBtn_2_clicked();
 
+    void on_signupBtn_2_clicked();
+
+    void showMessage(const QString &title, const QString &text, QMessageBox::Icon icon = QMessageBox::Information, QFlags<QMessageBox::StandardButton> buttons = QMessageBox::Ok);
+
+    bool isValidEmail(const QString &email);
+
 private:
     Ui::LoginPage *ui;
+    QSqlDatabase DB;
 };
 
 #endif // LOGINPAGE_H

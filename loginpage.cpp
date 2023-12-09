@@ -79,7 +79,7 @@ void LoginPage::on_loginBtn_clicked()
     } else {
         // Login failed, show error message
         qDebug() << "Login failed";
-        showMessage("Login Error", "Invalid email or password. Please try again.", QMessageBox::Critical, QMessageBox::Ok);
+        showMessage("Login Error", "Invalid email or password.", QMessageBox::Critical, QMessageBox::Ok);
     }
 
     DB.close();

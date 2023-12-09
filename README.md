@@ -19,7 +19,7 @@ To run **RCMS** on Desktop, follow these steps:
 2. **Clone the Repository:** Clone the project repository to your local machine.
 
 ```bash
-$ git clone https://github.com/sanjibdahal/RCMS.git
+git clone https://github.com/sanjibdahal/RCMS.git
 ```
 
 3. **Build the Project:** Open Qt Creator app and open the project that was cloned and you may need to run qmake once.

@@ -37,6 +37,8 @@ private slots:
 
     bool isValidEmail(const QString &email);
 
+    void on_loginBtn_pressed();
+
 private:
     Ui::LoginPage *ui;
     QSqlDatabase DB;

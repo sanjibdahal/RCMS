@@ -12,6 +12,7 @@ LoginPage::LoginPage(QWidget *parent) :
     ui(new Ui::LoginPage)
 {
     ui->setupUi(this);
+    ui->stackedWidget_2->setCurrentIndex(0);
     DB = QSqlDatabase::addDatabase("QSQLITE");
     DB.setDatabaseName(path_to_database);
 
@@ -152,31 +153,5 @@ void LoginPage::on_signupBtn_2_clicked()
     DB.close();
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

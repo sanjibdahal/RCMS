@@ -19,6 +19,16 @@ public:
 private slots:
     void on_logoutBtn_clicked();
 
+    void on_dashboardBtn_clicked();
+
+    void on_membersBtn_clicked();
+
+    void on_bookingBtn_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_addBooking_clicked();
+
 private:
     Ui::AdminDashboard *ui;
 };

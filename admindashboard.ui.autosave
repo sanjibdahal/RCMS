@@ -350,7 +350,7 @@
             <string notr="true">background: #fff;</string>
            </property>
            <property name="currentIndex">
-            <number>1</number>
+            <number>2</number>
            </property>
            <widget class="QWidget" name="dashboardPage">
             <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -669,7 +669,8 @@
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding-left:8px;</string>
+                     <string notr="true">
+padding: 10px 0px 10px 8px;</string>
                     </property>
                     <property name="placeholderText">
                      <string>Full Name</string>
@@ -691,7 +692,8 @@
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding-left:8px;</string>
+                     <string notr="true">
+padding: 10px 0px 10px 8px;</string>
                     </property>
                     <property name="placeholderText">
                      <string>Gender</string>
@@ -713,7 +715,7 @@
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding-left:8px;</string>
+                     <string notr="true">padding: 10px 0px 10px 8px;</string>
                     </property>
                     <property name="placeholderText">
                      <string>Contact Number</string>
@@ -735,54 +737,11 @@
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding-left:8px;</string>
+                     <string notr="true">
+padding: 10px 0px 10px 8px;</string>
                     </property>
                     <property name="placeholderText">
                      <string>Address</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLineEdit" name="lineEdit_2">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Poppins</family>
-                      <pointsize>12</pointsize>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding-left:8px;</string>
-                    </property>
-                    <property name="placeholderText">
-                     <string>Choose Service</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLineEdit" name="lineEdit_5">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Poppins</family>
-                      <pointsize>12</pointsize>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">padding-left:8px;</string>
-                    </property>
-                    <property name="placeholderText">
-                     <string>Choose Date and Time</string>
                     </property>
                    </widget>
                   </item>
@@ -801,28 +760,8 @@
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">QComboBox {
-    padding: 8px;
-    selection-background-color: #fff;
-	selection-color: #000;
-}
-
-QComboBox::item {
-	color: #999;
-}
-
-QComboBox::item:selected {
-    color: #000;
-}
-
-QAbstractItemView {
-    selection-background-color: #0f0;
-}
-
-QAbstractItemView::item:disabled {
-    color: #999;
-    background-color: #fff;
-}</string>
+                     <string notr="true">
+padding: 10px 0px 10px 8px;</string>
                     </property>
                     <item>
                      <property name="text">
@@ -861,9 +800,11 @@ QAbstractItemView::item:disabled {
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">padding-left:8px;
-color: #999;
-</string>
+                     <string notr="true">
+padding: 10px 0px 10px 8px;</string>
+                    </property>
+                    <property name="calendarPopup">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>
@@ -886,7 +827,7 @@ color: #999;
                       <property name="styleSheet">
                        <string notr="true">background: #2FC5B3;
 color:#fff;
-padding: 8px 10px;
+padding: 12px 14px;
 border-radius:6px;</string>
                       </property>
                       <property name="text">
@@ -978,7 +919,7 @@ border-radius:6px;</string>
                   <number>15</number>
                  </property>
                  <item>
-                  <widget class="QPushButton" name="pushButton">
+                  <widget class="QPushButton" name="refreshtableBtn">
                    <property name="font">
                     <font>
                      <family>Poppins</family>

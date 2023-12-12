@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "loginpage.h"
+#include <QtSql>
 
 namespace Ui {
 class AdminDashboard;
@@ -29,8 +30,11 @@ private slots:
 
     void on_pushButton_addBooking_clicked();
 
+    void on_refreshtableBtn_clicked();
+
 private:
     Ui::AdminDashboard *ui;
+    QSqlDatabase DB;
 };
 
 #endif // ADMINDASHBOARD_H

@@ -75,9 +75,10 @@ void AdminDashboard::on_refreshtableBtn_clicked()
 
     QSqlQuery query;
     query.prepare("SELECT * FROM user_details");
+    int numberofRowstoShow = 10;
 
     if (query.exec()) {
-        ui->tableWidget->setRowCount(query.size());
+        ui->tableWidget->setRowCount(numberofRowstoShow);
         int RowNumber = 0;
 
         while(query.next())
@@ -95,8 +96,7 @@ void AdminDashboard::on_refreshtableBtn_clicked()
 
     } else {
         // Login failed, show error message
-        qDebug() << "Login failed";
-        showMessage("Login Error", "Invalid email or password.", QMessageBox::Critical, QMessageBox::Ok);
+        qDebug() << "Table loading failed.";
     }
 
     DB.close();

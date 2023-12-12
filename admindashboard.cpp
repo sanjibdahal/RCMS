@@ -79,6 +79,7 @@ void AdminDashboard::on_refreshtableBtn_clicked()
 
     if (query.exec()) {
         ui->tableWidget->setRowCount(numberofRowstoShow);
+        qDebug() << "Rows: " << query.size();
         int RowNumber = 0;
 
         while(query.next())
@@ -96,7 +97,7 @@ void AdminDashboard::on_refreshtableBtn_clicked()
 
     } else {
         // Login failed, show error message
-        qDebug() << "Table loading failed.";
+        qDebug() << "Data loading to table error.";
     }
 
     DB.close();

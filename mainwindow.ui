@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>954</width>
-    <height>545</height>
+    <height>603</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -27,7 +27,7 @@
    <string>Dhulikhel Recreational Center - Welcome Page</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="logo.qrc">
+   <iconset resource="images.qrc">
     <normaloff>:/images/logo.png</normaloff>:/images/logo.png</iconset>
   </property>
   <property name="styleSheet">
@@ -222,7 +222,7 @@ padding: 15px 20px;</string>
   </widget>
  </widget>
  <resources>
-  <include location="logo.qrc"/>
+  <include location="images.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -23,7 +23,6 @@ public:
     ~LoginPage();
 
 private slots:
-    void on_pushButton_clicked();
 
     void on_loginBtn_clicked();
 
@@ -36,8 +35,6 @@ private slots:
     void showMessage(const QString &title, const QString &text, QMessageBox::Icon icon = QMessageBox::Information, QFlags<QMessageBox::StandardButton> buttons = QMessageBox::Ok);
 
     bool isValidEmail(const QString &email);
-
-    void on_loginBtn_pressed();
 
 private:
     Ui::LoginPage *ui;

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "loginpage.h"
 #include <QtSql>
+#include <QMessageBox>
 
 namespace Ui {
 class AdminDashboard;
@@ -31,6 +32,14 @@ private slots:
     void on_pushButton_addBooking_clicked();
 
     void on_refreshtableBtn_clicked();
+
+    void refreshTable();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_updateBooking_clicked();
+
+    void on_pushButton_updateInfo_clicked();
 
 private:
     Ui::AdminDashboard *ui;

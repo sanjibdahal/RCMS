@@ -36,6 +36,16 @@
      </spacer>
     </item>
     <item alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_12">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/images/logo3.png</pixmap>
+      </property>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="label">
       <property name="font">
        <font>

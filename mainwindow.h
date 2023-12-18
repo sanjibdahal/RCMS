@@ -3,6 +3,12 @@
 
 #include <QMainWindow>
 #include "loginpage.h"
+#include <QDir>
+#include <QFile>
+#include <QSqlDatabase>
+#include <QtSql>
+#include <QSqlQuery>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

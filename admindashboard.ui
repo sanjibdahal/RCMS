@@ -360,7 +360,7 @@
             <string notr="true">background: #fff;</string>
            </property>
            <property name="currentIndex">
-            <number>2</number>
+            <number>1</number>
            </property>
            <widget class="QWidget" name="dashboardPage">
             <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -656,7 +656,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QGroupBox" name="groupBox">
+                <widget class="QGroupBox" name="groupBox_2">
                  <property name="title">
                   <string/>
                  </property>

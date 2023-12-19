@@ -3,16 +3,14 @@
 #include <QMessageBox>
 #include <QCryptographicHash>
 
-#define path_to_database "E:/Qt Projects/RCMS2/database/database.db"
-
-
-
 LoginPage::LoginPage(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LoginPage)
 {
     ui->setupUi(this);
     ui->stackedWidget_2->setCurrentIndex(0);
+
+    QString path_to_database = QCoreApplication::applicationDirPath() + QDir::separator() + "database" + QDir::separator() + "database.db";
     DB = QSqlDatabase::addDatabase("QSQLITE");
     DB.setDatabaseName(path_to_database);
 

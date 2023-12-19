@@ -434,6 +434,7 @@
            </property>
            <property name="currentIndex">
             <number>5</number>
+        
            </property>
            <widget class="QWidget" name="bookingPage">
             <layout class="QVBoxLayout" name="bookverticalLayout_5">
@@ -884,7 +885,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QGroupBox" name="groupBox">
+                <widget class="QGroupBox" name="groupBox_2">
                  <property name="title">
                   <string/>
                  </property>

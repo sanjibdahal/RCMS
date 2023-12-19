@@ -2,22 +2,19 @@
 <ui version="4.0">
  <class>AdminDashboard</class>
  <widget class="QMainWindow" name="AdminDashboard">
-  <property name="enabled">
-   <bool>true</bool>
-  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1109</width>
-    <height>612</height>
+    <width>1087</width>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dhulikhel Recreational Center</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="images.qrc">
     <normaloff>:/images/logo.png</normaloff>:/images/logo.png</iconset>
   </property>
   <property name="styleSheet">
@@ -34,21 +31,12 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QLabel" name="label_14">
-           <property name="maximumSize">
-            <size>
-             <width>35</width>
-             <height>25</height>
-            </size>
-           </property>
+          <widget class="QLabel" name="label_9">
            <property name="text">
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="images.qrc">:/images/logosmall.jpg</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
+            <pixmap resource="images.qrc">:/images/logo3.png</pixmap>
            </property>
           </widget>
          </item>
@@ -57,7 +45,7 @@
            <property name="font">
             <font>
              <family>Poppins</family>
-             <pointsize>18</pointsize>
+             <pointsize>12</pointsize>
              <bold>true</bold>
             </font>
            </property>
@@ -66,9 +54,6 @@
            </property>
            <property name="text">
             <string>Dhulikhel Recreational Center</string>
-           </property>
-           <property name="margin">
-            <number>-1</number>
            </property>
           </widget>
          </item>
@@ -141,9 +126,6 @@
          </property>
          <item>
           <widget class="QPushButton" name="dashboardBtn">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -165,22 +147,12 @@
            <property name="font">
             <font>
              <family>Poppins</family>
-             <pointsize>14</pointsize>
-             <italic>false</italic>
-             <bold>true</bold>
-             <underline>false</underline>
-             <strikeout>false</strikeout>
-             <kerning>true</kerning>
+             <pointsize>12</pointsize>
+             <bold>false</bold>
             </font>
            </property>
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
            </property>
            <property name="styleSheet">
             <string notr="true">background: #229D8E;color:#fff;</string>
@@ -188,33 +160,10 @@
            <property name="text">
             <string>Dashboard</string>
            </property>
-           <property name="icon">
-            <iconset theme="applications-engineering" resource="images.qrc">
-             <normaloff>:/images/5778818.png</normaloff>
-             <disabledoff>:/images/5778818.png</disabledoff>
-             <disabledon>:/images/5778818.png</disabledon>
-             <selectedoff>:/images/5778818.png</selectedoff>
-             <selectedon>:/images/5778818.png</selectedon>:/images/5778818.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>25</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>false</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="membersBtn">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -236,8 +185,8 @@
            <property name="font">
             <font>
              <family>Poppins</family>
-             <pointsize>14</pointsize>
-             <bold>true</bold>
+             <pointsize>12</pointsize>
+             <bold>false</bold>
             </font>
            </property>
            <property name="cursor">
@@ -249,26 +198,10 @@
            <property name="text">
             <string>Members</string>
            </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>images/9217625.png</normaloff>
-             <disabledoff>:/images/9217625.png</disabledoff>
-             <selectedoff>:/images/9217625.png</selectedoff>
-             <selectedon>:/images/9217625.png</selectedon>images/9217625.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>25</width>
-             <height>25</height>
-            </size>
-           </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="bookingBtn">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -290,8 +223,8 @@
            <property name="font">
             <font>
              <family>Poppins</family>
-             <pointsize>14</pointsize>
-             <bold>true</bold>
+             <pointsize>12</pointsize>
+             <bold>false</bold>
             </font>
            </property>
            <property name="cursor">
@@ -307,9 +240,6 @@
          </item>
          <item>
           <widget class="QPushButton" name="notificationsBtn">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -331,8 +261,8 @@
            <property name="font">
             <font>
              <family>Poppins</family>
-             <pointsize>14</pointsize>
-             <bold>true</bold>
+             <pointsize>12</pointsize>
+             <bold>false</bold>
             </font>
            </property>
            <property name="cursor">
@@ -351,9 +281,6 @@
          </item>
          <item>
           <widget class="QPushButton" name="logoutBtn">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -375,8 +302,8 @@
            <property name="font">
             <font>
              <family>Poppins</family>
-             <pointsize>14</pointsize>
-             <bold>true</bold>
+             <pointsize>12</pointsize>
+             <bold>false</bold>
             </font>
            </property>
            <property name="cursor">
@@ -433,164 +360,8 @@
             <string notr="true">background: #fff;</string>
            </property>
            <property name="currentIndex">
-            <number>5</number>
-        
+            <number>1</number>
            </property>
-           <widget class="QWidget" name="bookingPage">
-            <layout class="QVBoxLayout" name="bookverticalLayout_5">
-             <property name="leftMargin">
-              <number>20</number>
-             </property>
-             <property name="topMargin">
-              <number>20</number>
-             </property>
-             <property name="rightMargin">
-              <number>20</number>
-             </property>
-             <property name="bottomMargin">
-              <number>20</number>
-             </property>
-             <item>
-              <layout class="QVBoxLayout" name="bookverticalLayout_4">
-               <item>
-                <widget class="QLabel" name="booklabel_3">
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777213</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Poppins</family>
-                   <pointsize>18</pointsize>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color:
-                                                                            #000; </string>
-                 </property>
-                 <property name="text">
-                  <string>Welcome back, Admin</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="bookhorizontalLayout_4">
-                 <property name="topMargin">
-                  <number>20</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="booklabel_4">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>350</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Poppins</family>
-                     <pointsize>13</pointsize>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">color:
-                                                                                    #fff;
-                                                                                    background:
-                                                                                    #0085FF;
-                                                                                    padding: 0 10px;</string>
-                   </property>
-                   <property name="text">
-                    <string>Total Capacity: 100</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="bookhorizontalSpacer_2">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="booklabel_6">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>350</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Poppins</family>
-                     <pointsize>13</pointsize>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">color:
-                                                                                    #fff;
-                                                                                    background:
-                                                                                    #26C971;
-                                                                                    padding: 0 10px;</string>
-                   </property>
-                   <property name="text">
-                    <string>Booked services: 31</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <spacer name="bookverticalSpacer_2">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
-           </widget>
            <widget class="QWidget" name="dashboardPage">
             <layout class="QVBoxLayout" name="verticalLayout_5">
              <property name="leftMargin">
@@ -1593,230 +1364,6 @@ border-radius:6px;</string>
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="bokngmngnt">
-            <widget class="QLabel" name="label_10">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>10</y>
-               <width>271</width>
-               <height>51</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Poppins</family>
-               <pointsize>24</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-             </property>
-             <property name="text">
-              <string>Booking Management</string>
-             </property>
-             <property name="margin">
-              <number>5</number>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_11">
-             <property name="geometry">
-              <rect>
-               <x>20</x>
-               <y>70</y>
-               <width>281</width>
-               <height>181</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap resource="images.qrc">:/images/spa.jpg</pixmap>
-             </property>
-             <property name="scaledContents">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_12">
-             <property name="geometry">
-              <rect>
-               <x>370</x>
-               <y>70</y>
-               <width>281</width>
-               <height>181</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap resource="images.qrc">:/images/sauna.jpg</pixmap>
-             </property>
-             <property name="scaledContents">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_13">
-             <property name="geometry">
-              <rect>
-               <x>20</x>
-               <y>280</y>
-               <width>281</width>
-               <height>181</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap resource="images.qrc">:/images/swim.jpg</pixmap>
-             </property>
-             <property name="scaledContents">
-              <bool>true</bool>
-             </property>
-            </widget>
-            <widget class="QTextBrowser" name="textBrowser">
-             <property name="geometry">
-              <rect>
-               <x>20</x>
-               <y>70</y>
-               <width>281</width>
-               <height>181</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgba(0, 0, 0, 101);</string>
-             </property>
-             <property name="html">
-              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Poppins'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700; color:#ffffff;&quot;&gt;Fish Spa&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:24pt; font-weight:700; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#fffb00;&quot;&gt;Fish Spa are type of foot treatment that involves fish that eats dead skin off your feet.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-            <widget class="QTextBrowser" name="textBrowser_2">
-             <property name="geometry">
-              <rect>
-               <x>370</x>
-               <y>70</y>
-               <width>281</width>
-               <height>181</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgba(0, 0, 0, 101);</string>
-             </property>
-             <property name="html">
-              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Poppins'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700; color:#ffffff;&quot;&gt;Sauna&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:24pt; font-weight:700; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#fffb00;&quot;&gt;Sauna is a small room used as a hot-air or steam bath for cleaning and refreshing the body.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-            <widget class="QTextBrowser" name="textBrowser_3">
-             <property name="geometry">
-              <rect>
-               <x>20</x>
-               <y>280</y>
-               <width>281</width>
-               <height>181</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgba(0, 0, 0, 101);</string>
-             </property>
-             <property name="html">
-              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Poppins'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700; color:#ffffff;&quot;&gt;Swinning Pool&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:24pt; font-weight:700; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#fffb00;&quot;&gt;Swimming is an actitvity that involves coordination of arm and leg motion to propel your body through water.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </widget>
-           <widget class="QWidget" name="Notification">
-            <widget class="QTextBrowser" name="textBrowser_4">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>10</y>
-               <width>391</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
-             </property>
-             <property name="html">
-              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Poppins'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Notification&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_9">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>50</y>
-               <width>511</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>1. User has no thing to do</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_15">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>80</y>
-               <width>491</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>2. User canceled his plan</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_16">
-             <property name="geometry">
-              <rect>
-               <x>60</x>
-               <y>280</y>
-               <width>58</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </widget>
            <widget class="QWidget" name="membersPage">
             <layout class="QVBoxLayout" name="verticalLayout_6">
              <property name="leftMargin">
@@ -2106,6 +1653,161 @@ border-radius:6px;</string>
                 </property>
                </column>
               </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="bookingPage">
+            <layout class="QVBoxLayout" name="bookverticalLayout_5">
+             <property name="leftMargin">
+              <number>20</number>
+             </property>
+             <property name="topMargin">
+              <number>20</number>
+             </property>
+             <property name="rightMargin">
+              <number>20</number>
+             </property>
+             <property name="bottomMargin">
+              <number>20</number>
+             </property>
+             <item>
+              <layout class="QVBoxLayout" name="bookverticalLayout_4">
+               <item>
+                <widget class="QLabel" name="booklabel_3">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777213</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Poppins</family>
+                   <pointsize>18</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:
+                                                                            #000; </string>
+                 </property>
+                 <property name="text">
+                  <string>Welcome back, Admin</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="bookhorizontalLayout_4">
+                 <property name="topMargin">
+                  <number>20</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="booklabel_4">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>350</width>
+                     <height>50</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>50</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Poppins</family>
+                     <pointsize>13</pointsize>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color:
+                                                                                    #fff;
+                                                                                    background:
+                                                                                    #0085FF;
+                                                                                    padding: 0 10px;</string>
+                   </property>
+                   <property name="text">
+                    <string>Total Capacity: 100</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="bookhorizontalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="booklabel_6">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>350</width>
+                     <height>50</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>50</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Poppins</family>
+                     <pointsize>13</pointsize>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color:
+                                                                                    #fff;
+                                                                                    background:
+                                                                                    #26C971;
+                                                                                    padding: 0 10px;</string>
+                   </property>
+                   <property name="text">
+                    <string>Booked services: 31</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="bookverticalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
              </item>
             </layout>
            </widget>

@@ -10,10 +10,12 @@ AdminDashboard::AdminDashboard(QWidget *parent) :
     //ui->stackedWidget->setCurrentIndex(0);
     //ui->comboBox->setItemData(0, 0, Qt::UserRole - 1);
 
-
-    ui->stackedWidget->setCurrentIndex(0);
+    on_dashboardBtn_clicked();
 
     ui->date->setDateTime(QDateTime::currentDateTime());
+
+    this->setStyleSheet("QMessageBox::QLabel{font-size: 18px; color: #fff; font-weight: 400; font-family: 'Poppins';} QMessageBox::QPushButton{color: #fff; font-family: 'Poppins' } QCalendarWidget { background: #777; }");
+
 
     QString path_to_database = QCoreApplication::applicationDirPath() + QDir::separator() + "database" + QDir::separator() + "database.db";
 
@@ -95,6 +97,11 @@ void AdminDashboard::refreshTable() {
 
 void AdminDashboard::on_logoutBtn_clicked()
 {
+    deselectedPushButton(ui->dashboardBtn);
+    deselectedPushButton(ui->bookingBtn);
+    deselectedPushButton(ui->membersBtn);
+    deselectedPushButton(ui->notificationsBtn);
+    selectedPushButton(ui->logoutBtn);
     LoginPage *loginpage = new LoginPage();
     loginpage->showMaximized();
     this->close();
@@ -104,6 +111,11 @@ void AdminDashboard::on_logoutBtn_clicked()
 void AdminDashboard::on_dashboardBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+    selectedPushButton(ui->dashboardBtn);
+    deselectedPushButton(ui->bookingBtn);
+    deselectedPushButton(ui->membersBtn);
+    deselectedPushButton(ui->notificationsBtn);
+    deselectedPushButton(ui->logoutBtn);
 }
 
 
@@ -111,13 +123,23 @@ void AdminDashboard::on_membersBtn_clicked()
 {
     refreshTable();
     ui->stackedWidget->setCurrentIndex(3);
+    deselectedPushButton(ui->dashboardBtn);
+    deselectedPushButton(ui->bookingBtn);
+    selectedPushButton(ui->membersBtn);
+    deselectedPushButton(ui->notificationsBtn);
+    deselectedPushButton(ui->logoutBtn);
 }
 
 
 void AdminDashboard::on_bookingBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
-    int num = 100;
+    refreshTable();
+    deselectedPushButton(ui->dashboardBtn);
+    selectedPushButton(ui->bookingBtn);
+    deselectedPushButton(ui->membersBtn);
+    deselectedPushButton(ui->notificationsBtn);
+    deselectedPushButton(ui->logoutBtn);
 }
 
 
@@ -219,6 +241,24 @@ void AdminDashboard::on_pushButton_addBooking_clicked()
 
 
 }
+
+
+
+
+void AdminDashboard::selectedPushButton(QPushButton *button)
+{
+    button->setStyleSheet("QPushButton { background: #307970; color:#fff; text-align: left; padding-left:20; border: none; border-left:6px solid #2fc5b3; outline: none; } QPushButton:hover { background: #307970; }");
+}
+
+void AdminDashboard::deselectedPushButton(QPushButton *button)
+{
+    button->setStyleSheet("QPushButton { background: #2fc5b3; color:#fff; text-align: left; padding-left:20; border: none; outline: none; } QPushButton:hover { background: #307970; }");
+}
+
+
+
+
+
 
 void AdminDashboard::on_refreshtableBtn_clicked()
 {

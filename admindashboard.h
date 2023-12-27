@@ -41,6 +41,10 @@ private slots:
 
     void on_pushButton_updateInfo_clicked();
 
+    void selectedPushButton(QPushButton *button);
+
+    void deselectedPushButton(QPushButton *button);
+
 private:
     Ui::AdminDashboard *ui;
     QSqlDatabase DB;

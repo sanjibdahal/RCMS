@@ -35,6 +35,9 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
     <item>
      <spacer name="verticalSpacer">
       <property name="orientation">
@@ -69,22 +72,9 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: url(:/images/logo2.png) no-repeat;</string>
+       <string notr="true">background: url(:/images/logo5.png) no-repeat center;</string>
       </property>
      </widget>
-    </item>
-    <item>
-     <spacer name="verticalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -182,8 +172,8 @@ Dhulikhel Recreational Center</string>
         <property name="styleSheet">
          <string notr="true">background: white;
 color: #116f64;
-border-radius: 10px;
-padding: 15px 20px;</string>
+border-radius: 12px;
+padding: 15px 70px;</string>
         </property>
         <property name="text">
          <string>Get Started</string>

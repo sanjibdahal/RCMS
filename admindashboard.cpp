@@ -1,6 +1,6 @@
 #include "admindashboard.h"
 #include "ui_admindashboard.h"
-
+using namespace std;
 
 AdminDashboard::AdminDashboard(QWidget *parent) :
     QMainWindow(parent),
@@ -9,6 +9,7 @@ AdminDashboard::AdminDashboard(QWidget *parent) :
     ui->setupUi(this);
     //ui->stackedWidget->setCurrentIndex(0);
     //ui->comboBox->setItemData(0, 0, Qt::UserRole - 1);
+
 
     ui->stackedWidget->setCurrentIndex(0);
 
@@ -49,6 +50,7 @@ void AdminDashboard::refreshTable() {
     ui->tableWidget->setColumnWidth(3,200);
     ui->tableWidget->setColumnWidth(4,180);
     ui->tableWidget->setColumnWidth(5,125);
+    int count_Swimming = 0, count_Sauna = 0, count_Spa = 0;
 
     if (query.exec()) {
         int RowNumber = 0;
@@ -65,7 +67,22 @@ void AdminDashboard::refreshTable() {
             ui->tableWidget->setItem(RowNumber, 5, new QTableWidgetItem(QString(query.value("service").toString())));
             ui->tableWidget->setItem(RowNumber, 6, new QTableWidgetItem(QString(query.value("date").toString())));
             RowNumber++;
+            if (query.value("service").toString() == "Swimming") {
+                count_Swimming++;
+            }
+            else if(query.value("service").toString() == "Sauna") {
+                count_Sauna++;
+            }
+            else if(query.value("service").toString() == "Spa") {
+                count_Spa++;
+            }
         }
+        ui->countSwimming->setText("Booked: " + QString::number(count_Swimming));
+        ui->countSauna->setText("Booked: " + QString::number(count_Sauna));
+        ui->countSpa->setText("Booked: " + QString::number(count_Spa));
+        ui->remainingSwimming->setText("Remaining: " + QString::number(swimmingCapacity - count_Swimming));
+        ui->remainingSauna->setText("Remaining: " + QString::number(saunaCapacity - count_Sauna));
+        ui->remainingSpa->setText("Remaining: " + QString::number(spaCapacity - count_Spa));
 
 
     } else {
@@ -100,6 +117,7 @@ void AdminDashboard::on_membersBtn_clicked()
 void AdminDashboard::on_bookingBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+    int num = 100;
 }
 
 

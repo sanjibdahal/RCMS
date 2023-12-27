@@ -434,7 +434,7 @@
             <string notr="true">background: #fff;</string>
            </property>
            <property name="currentIndex">
-            <number>4</number>
+            <number>2</number>
            </property>
            <widget class="QWidget" name="dashboardPage">
             <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -869,6 +869,9 @@
                     <property name="styleSheet">
                      <string notr="true">padding: 10px 0px 10px 8px;</string>
                     </property>
+                    <property name="inputMethodHints">
+                     <set>Qt::ImhDigitsOnly</set>
+                    </property>
                     <property name="placeholderText">
                      <string>Contact Number</string>
                     </property>
@@ -1257,6 +1260,9 @@
                     </property>
                     <property name="styleSheet">
                      <string notr="true">padding: 10px 0px 10px 8px;</string>
+                    </property>
+                    <property name="inputMethodHints">
+                     <set>Qt::ImhDigitsOnly</set>
                     </property>
                     <property name="placeholderText">
                      <string>Contact Number</string>
@@ -1887,12 +1893,18 @@ background: transparent;</string>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_10">
                      <item>
-                      <widget class="QLabel" name="label_19">
+                      <widget class="QLabel" name="countSpa">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                          <horstretch>0</horstretch>
                          <verstretch>0</verstretch>
                         </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>45</height>
+                        </size>
                        </property>
                        <property name="font">
                         <font>
@@ -1905,7 +1917,7 @@ background: transparent;</string>
                         <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
                        </property>
                        <property name="text">
-                        <string>Booked: 10</string>
+                        <string>Booked: 0</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
@@ -1929,12 +1941,18 @@ background: transparent;</string>
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_22">
+                      <widget class="QLabel" name="remainingSpa">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                          <horstretch>0</horstretch>
                          <verstretch>0</verstretch>
                         </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>165</width>
+                         <height>45</height>
+                        </size>
                        </property>
                        <property name="font">
                         <font>
@@ -1947,7 +1965,7 @@ background: transparent;</string>
                         <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
                        </property>
                        <property name="text">
-                        <string>Remaining: 10</string>
+                        <string>Remaining: 15</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
@@ -2087,12 +2105,18 @@ background: transparent;</string>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_9">
                      <item>
-                      <widget class="QLabel" name="label_16">
+                      <widget class="QLabel" name="countSauna">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                          <horstretch>0</horstretch>
                          <verstretch>0</verstretch>
                         </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>45</height>
+                        </size>
                        </property>
                        <property name="font">
                         <font>
@@ -2105,7 +2129,7 @@ background: transparent;</string>
                         <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
                        </property>
                        <property name="text">
-                        <string>Booked: 2</string>
+                        <string>Booked: 0</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
@@ -2129,12 +2153,18 @@ background: transparent;</string>
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_21">
+                      <widget class="QLabel" name="remainingSauna">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                          <horstretch>0</horstretch>
                          <verstretch>0</verstretch>
                         </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>165</width>
+                         <height>45</height>
+                        </size>
                        </property>
                        <property name="font">
                         <font>
@@ -2147,7 +2177,7 @@ background: transparent;</string>
                         <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
                        </property>
                        <property name="text">
-                        <string>Remaining: 18</string>
+                        <string>Remaining: 15</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
@@ -2287,7 +2317,7 @@ background: transparent;</string>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_8">
                      <item>
-                      <widget class="QLabel" name="label_13">
+                      <widget class="QLabel" name="countSwimming">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -2296,7 +2326,7 @@ background: transparent;</string>
                        </property>
                        <property name="minimumSize">
                         <size>
-                         <width>0</width>
+                         <width>120</width>
                          <height>45</height>
                         </size>
                        </property>
@@ -2311,7 +2341,7 @@ background: transparent;</string>
                         <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
                        </property>
                        <property name="text">
-                        <string>Booked: 20</string>
+                        <string>Booked: 0</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
@@ -2335,7 +2365,7 @@ background: transparent;</string>
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_20">
+                      <widget class="QLabel" name="remainingSwimming">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -2344,7 +2374,7 @@ background: transparent;</string>
                        </property>
                        <property name="minimumSize">
                         <size>
-                         <width>0</width>
+                         <width>165</width>
                          <height>45</height>
                         </size>
                        </property>
@@ -2359,7 +2389,7 @@ background: transparent;</string>
                         <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
                        </property>
                        <property name="text">
-                        <string>Remaining: 30</string>
+                        <string>Remaining: 40</string>
                        </property>
                       </widget>
                      </item>

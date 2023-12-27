@@ -44,6 +44,9 @@ private slots:
 private:
     Ui::AdminDashboard *ui;
     QSqlDatabase DB;
+    const int swimmingCapacity = 40;
+    const int spaCapacity = 15;
+    const int saunaCapacity = 15;
 };
 
 #endif // ADMINDASHBOARD_H

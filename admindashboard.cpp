@@ -12,6 +12,7 @@ AdminDashboard::AdminDashboard(QWidget *parent) :
 
     on_dashboardBtn_clicked();
     ui->date->setDate(QDate::currentDate());
+    ui->bookDate->setDate(QDate::currentDate());
 
     this->setStyleSheet("QMessageBox::QLabel{font-size: 18px; color: #fff; font-weight: 400; font-family: 'Poppins';} QMessageBox::QPushButton{color: #fff; font-family: 'Poppins' } QCalendarWidget { background: #777; }");
 
@@ -56,7 +57,6 @@ void AdminDashboard::refreshTable() {
     ui->tableWidget->setColumnWidth(4,180);
     ui->tableWidget->setColumnWidth(5,125);
     ui->tableWidget->setColumnWidth(6,125);
-    int count_Swimming = 0, count_Sauna = 0, count_Spa = 0;
 
     if (query.exec()) {
         int RowNumber = 0;
@@ -74,24 +74,7 @@ void AdminDashboard::refreshTable() {
             ui->tableWidget->setItem(RowNumber, 6, new QTableWidgetItem(QString(query.value("date").toString())));
             ui->tableWidget->setItem(RowNumber, 7, new QTableWidgetItem(QString(query.value("time").toString())));
             RowNumber++;
-            if (query.value("service").toString() == "Swimming") {
-                count_Swimming++;
-            }
-            else if(query.value("service").toString() == "Sauna") {
-                count_Sauna++;
-            }
-            else if(query.value("service").toString() == "Spa") {
-                count_Spa++;
-            }
         }
-        ui->countSwimming->setText("Booked: " + QString::number(count_Swimming));
-        ui->countSauna->setText("Booked: " + QString::number(count_Sauna));
-        ui->countSpa->setText("Booked: " + QString::number(count_Spa));
-        ui->remainingSwimming->setText("Remaining: " + QString::number(swimmingCapacity - count_Swimming));
-        ui->remainingSauna->setText("Remaining: " + QString::number(saunaCapacity - count_Sauna));
-        ui->remainingSpa->setText("Remaining: " + QString::number(spaCapacity - count_Spa));
-
-
     } else {
         // Login failed, show error message
         qDebug() << "Data loading to table error.";
@@ -139,7 +122,7 @@ void AdminDashboard::on_membersBtn_clicked()
 void AdminDashboard::on_bookingBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
-    refreshTable();
+    on_showBookingsBtn_clicked();
     deselectedPushButton(ui->dashboardBtn);
     selectedPushButton(ui->bookingBtn);
     deselectedPushButton(ui->membersBtn);
@@ -217,32 +200,35 @@ void AdminDashboard::on_pushButton_addBooking_clicked()
 
 
     if(!name.isEmpty() && !gender.isEmpty() && !phone_number.isEmpty() && !address.isEmpty() && !service.isEmpty() && !date.isEmpty() && !time.isEmpty() && phone_number.length()==10) {
-        QSqlQuery query;
+        if(checkCapacity(service, date, time)) {
+            QSqlQuery query;
+            query.prepare("INSERT INTO user_details (name, gender, phone_number, address, service, date, time) VALUES (:name, :gender, "
+                          ":phone_number, :address, :service, :date, :time)");
+            query.bindValue(":name", name);
+            query.bindValue(":gender", gender);
+            query.bindValue(":phone_number", phone_number);
+            query.bindValue(":address", address);
+            query.bindValue(":service", service);
+            query.bindValue(":date", date);
+            query.bindValue(":time", time);
 
-        query.prepare("INSERT INTO user_details (name, gender, phone_number, address, service, date, time) VALUES (:name, :gender, "
-                      ":phone_number, :address, :service, :date, :time)");
-        query.bindValue(":name", name);
-        query.bindValue(":gender", gender);
-        query.bindValue(":phone_number", phone_number);
-        query.bindValue(":address", address);
-        query.bindValue(":service", service);
-        query.bindValue(":date", date);
-        query.bindValue(":time", time);
-
-        if (query.exec()) {
-            qDebug() << "Data inserted successfully";
-            QMessageBox::information(this,"Successful", "User inserted successfully.", QMessageBox::Ok);
-            ui->name->clear();
-            ui->phone_number->clear();
-            ui->address->clear();
-            ui->maleradioButton->setChecked(false);
-            ui->femaleradioButton->setChecked(false);
-            ui->othersradioButton->setChecked(false);
-            ui->service->setCurrentIndex(-1);
-            ui->date->setDate(QDate::currentDate());
-            ui->timeSlot->setCurrentIndex(-1);
+            if (query.exec()) {
+                qDebug() << "Data inserted successfully";
+                QMessageBox::information(this,"Successful", "User inserted successfully.", QMessageBox::Ok);
+                ui->name->clear();
+                ui->phone_number->clear();
+                ui->address->clear();
+                ui->maleradioButton->setChecked(false);
+                ui->femaleradioButton->setChecked(false);
+                ui->othersradioButton->setChecked(false);
+                ui->service->setCurrentIndex(-1);
+                ui->date->setDate(QDate::currentDate());
+                ui->timeSlot->setCurrentIndex(-1);
+            } else {
+                qDebug() << "Error: " << query.lastError().text();
+            }
         } else {
-            qDebug() << "Error: " << query.lastError().text();
+            QMessageBox::warning(this, "Booking error", "The selected time slot is full for the chosen service.", QMessageBox::Ok);
         }
     } else {
         QMessageBox::warning(this,"Booking error", "All fields are required and cannot be empty.", QMessageBox::Ok);
@@ -250,10 +236,49 @@ void AdminDashboard::on_pushButton_addBooking_clicked()
 
     DB.close();
 
-
 }
 
 
+bool AdminDashboard::checkCapacity(const QString &service, const QString &date, const QString &time) {
+    if(!DB.open()) {
+        qDebug() << "Failed to open the database.";
+    }
+
+    // Query to get the counts for each service, date, and time
+    QSqlQuery query;
+    query.prepare("SELECT * FROM user_details WHERE service = :service AND date = :date AND time = :time");
+    query.bindValue(":service", service);
+    query.bindValue(":date", date);
+    query.bindValue(":time", time);
+
+    int count = 0;
+    if (query.exec()) {
+        while(query.next())
+        {
+            count++;
+        }
+    } else {
+        qDebug() << "Error: " << query.lastError().text();
+        return false; // Error in querying the database
+    }
+
+    // Set the maximum capacity based on service type
+    int maxCapacity = 0;
+    if (service == "Swimming") {
+        maxCapacity = swimmingCapacity;
+    } else if (service == "Sauna") {
+        maxCapacity = saunaCapacity;
+    } else if (service == "Spa") {
+        maxCapacity = spaCapacity;
+    }
+
+    // checking the capacity is full or not.
+    if(count < maxCapacity) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 void AdminDashboard::selectedPushButton(QPushButton *button)
@@ -346,36 +371,40 @@ void AdminDashboard::on_pushButton_updateBooking_clicked()
 
 
     if(!name.isEmpty() && !gender.isEmpty() && !phone_number.isEmpty() && !address.isEmpty() && !service.isEmpty() && !date.isEmpty() && !time.isEmpty() && phone_number.length()==10) {
-        QSqlQuery query;
+        if(checkCapacity(service,date,time)) {
+            QSqlQuery query;
 
-        query.prepare("UPDATE user_details SET name = :name, gender = :gender, phone_number = :phone_number, address = :address, service = :service, date = :date, time = :time WHERE id = :id");
-        query.bindValue(":name", name);
-        query.bindValue(":gender", gender);
-        query.bindValue(":phone_number", phone_number);
-        query.bindValue(":address", address);
-        query.bindValue(":service", service);
-        query.bindValue(":date", date);
-        query.bindValue(":id",id);
-        query.bindValue(":time",time);
+            query.prepare("UPDATE user_details SET name = :name, gender = :gender, phone_number = :phone_number, address = :address, service = :service, date = :date, time = :time WHERE id = :id");
+            query.bindValue(":name", name);
+            query.bindValue(":gender", gender);
+            query.bindValue(":phone_number", phone_number);
+            query.bindValue(":address", address);
+            query.bindValue(":service", service);
+            query.bindValue(":date", date);
+            query.bindValue(":id",id);
+            query.bindValue(":time",time);
 
-        if (query.exec()) {
-            qDebug() << "Data updated successfully";
-            QMessageBox::information(this,"Successful", "User information updated successfully.", QMessageBox::Ok);
-            ui->updatename->clear();
-            ui->updateid->clear();
-            ui->updatephone_number->clear();
-            ui->updateaddress->clear();
-            ui->maleradioButton1->setChecked(false);
-            ui->femaleradioButton1->setChecked(false);
-            ui->othersradioButton1->setChecked(false);
-            ui->updateservice->setCurrentIndex(-1);
-            ui->updateDate->setDate(QDate::currentDate());
-            ui->updatetimeSlot->setCurrentIndex(-1);
-            refreshTable();
-            ui->stackedWidget->setCurrentIndex(3);
+            if (query.exec()) {
+                qDebug() << "Data updated successfully";
+                QMessageBox::information(this,"Successful", "User information updated successfully.", QMessageBox::Ok);
+                ui->updatename->clear();
+                ui->updateid->clear();
+                ui->updatephone_number->clear();
+                ui->updateaddress->clear();
+                ui->maleradioButton1->setChecked(false);
+                ui->femaleradioButton1->setChecked(false);
+                ui->othersradioButton1->setChecked(false);
+                ui->updateservice->setCurrentIndex(-1);
+                ui->updateDate->setDate(QDate::currentDate());
+                ui->updatetimeSlot->setCurrentIndex(-1);
+                refreshTable();
+                ui->stackedWidget->setCurrentIndex(3);
 
+            } else {
+                qDebug() << "Error: " << query.lastError().text();
+            }
         } else {
-            qDebug() << "Error: " << query.lastError().text();
+            QMessageBox::warning(this, "Booking error", "The selected time slot is full for the chosen service.", QMessageBox::Ok);
         }
     } else {
         QMessageBox::warning(this,"Updating error", "All fields are required and cannot be empty.", QMessageBox::Ok);
@@ -383,6 +412,55 @@ void AdminDashboard::on_pushButton_updateBooking_clicked()
 
     DB.close();
 }
+
+void AdminDashboard::on_showBookingsBtn_clicked()
+{
+    QString date, time;
+    date = ui->bookDate->text();
+    time = ui->bookTimeSlot->currentText();
+    int count_Swimming = 0, count_Sauna = 0, count_Spa = 0;
+
+    if(!DB.open()) {
+        qDebug() << "Failed to open the database.";
+        return;
+    }
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM user_details WHERE date = :date AND time = :time");
+    query.bindValue(":date", date);
+    query.bindValue(":time", time);
+
+    if (query.exec()) {
+
+        while(query.next())
+        {
+            if (query.value("service").toString() == "Swimming") {
+                count_Swimming++;
+            }
+            else if(query.value("service").toString() == "Sauna") {
+                count_Sauna++;
+            }
+            else if(query.value("service").toString() == "Spa") {
+                count_Spa++;
+            }
+        }
+        ui->countSwimming->setText("Booked: " + QString::number(count_Swimming));
+        ui->countSauna->setText("Booked: " + QString::number(count_Sauna));
+        ui->countSpa->setText("Booked: " + QString::number(count_Spa));
+        ui->remainingSwimming->setText("Remaining: " + QString::number(swimmingCapacity - count_Swimming));
+        ui->remainingSauna->setText("Remaining: " + QString::number(saunaCapacity - count_Sauna));
+        ui->remainingSpa->setText("Remaining: " + QString::number(spaCapacity - count_Spa));
+
+    } else {
+        // Login failed, show error message
+        qDebug() << "Data loading to bookings error.";
+    }
+
+    DB.close();
+}
+
+
+
 
 
 

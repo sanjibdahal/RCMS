@@ -46,12 +46,16 @@ private slots:
 
     void deselectedPushButton(QPushButton *button);
 
+    void on_showBookingsBtn_clicked();
+
+    bool checkCapacity(const QString& service, const QString& date, const QString& time);
+
 private:
     Ui::AdminDashboard *ui;
     QSqlDatabase DB;
-    const int swimmingCapacity = 40;
-    const int spaCapacity = 15;
-    const int saunaCapacity = 15;
+    int swimmingCapacity = 40;
+    int spaCapacity = 5;
+    int saunaCapacity = 15;
 };
 
 #endif // ADMINDASHBOARD_H

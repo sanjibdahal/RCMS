@@ -60,7 +60,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     query.prepare("CREATE TABLE IF NOT EXISTS user_details (id INTEGER PRIMARY KEY AUTOINCREMENT, name	TEXT NOT NULL, gender TEXT NOT NULL, "
-                  "phone_number TEXT NOT NULL, address TEXT NOT NULL, service TEXT NOT NULL, date TEXT NOT NULL);");
+                  "phone_number TEXT NOT NULL, address TEXT NOT NULL, service TEXT NOT NULL, date TEXT NOT NULL, time TEXT NOT NULL);");
 
     if (query.exec()) {
         qDebug() << "Table user_details created successfully.";

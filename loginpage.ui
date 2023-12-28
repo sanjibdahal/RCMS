@@ -336,6 +336,12 @@
              <property name="text">
               <string>Login</string>
              </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+             <property name="default">
+              <bool>false</bool>
+             </property>
              <property name="flat">
               <bool>false</bool>
              </property>
@@ -760,6 +766,9 @@
              <property name="text">
               <string>Sign up</string>
              </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item>
@@ -858,6 +867,17 @@
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_username</tabstop>
+  <tabstop>lineEdit_password</tabstop>
+  <tabstop>loginBtn</tabstop>
+  <tabstop>signupBtn</tabstop>
+  <tabstop>lineEdit_username_2</tabstop>
+  <tabstop>lineEdit_confirm_password</tabstop>
+  <tabstop>signupBtn_2</tabstop>
+  <tabstop>loginBtn_2</tabstop>
+  <tabstop>lineEdit_password_2</tabstop>
+ </tabstops>
  <resources>
   <include location="images.qrc"/>
  </resources>

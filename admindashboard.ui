@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1286</width>
-    <height>740</height>
+    <height>777</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -364,11 +364,11 @@ background: #307970;
 </string>
            </property>
            <property name="text">
-            <string>Notifications</string>
+            <string>Personnel Management</string>
            </property>
            <property name="icon">
             <iconset resource="images.qrc">
-             <normaloff>:/images/bell-solid.png</normaloff>:/images/bell-solid.png</iconset>
+             <normaloff>:/images/user-gear-solid.png</normaloff>:/images/user-gear-solid.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -999,45 +999,9 @@ background: #fff;
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDateTimeEdit" name="date">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Poppins</family>
-                      <pointsize>12</pointsize>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-                                            padding: 10px 0px 10px 8px;</string>
-                    </property>
-                    <property name="dateTime">
-                     <datetime>
-                      <hour>0</hour>
-                      <minute>0</minute>
-                      <second>0</second>
-                      <year>2000</year>
-                      <month>1</month>
-                      <day>1</day>
-                     </datetime>
-                    </property>
-                    <property name="displayFormat">
-                     <string>yyyy/M/d h:mm AP</string>
-                    </property>
-                    <property name="calendarPopup">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_11">
                     <item>
-                     <widget class="QDateEdit" name="dateEdit">
+                     <widget class="QDateEdit" name="date">
                       <property name="font">
                        <font>
                         <family>Poppins</family>
@@ -1066,7 +1030,7 @@ background: #fff;
                      </widget>
                     </item>
                     <item>
-                     <widget class="QComboBox" name="comboBox">
+                     <widget class="QComboBox" name="timeSlot">
                       <property name="font">
                        <font>
                         <family>Poppins</family>
@@ -1128,6 +1092,12 @@ background: #fff;
                     </property>
                     <item>
                      <widget class="QPushButton" name="pushButton_addBooking">
+                      <property name="minimumSize">
+                       <size>
+                        <width>131</width>
+                        <height>47</height>
+                       </size>
+                      </property>
                       <property name="font">
                        <font>
                         <family>Poppins</family>
@@ -1141,7 +1111,6 @@ background: #fff;
                        <string notr="true">QPushButton {
 background: #2FC5B3;
 color:#fff;
-padding: 12px 14px;
 border-radius:6px;
 }
 QPushButton:hover {
@@ -1211,10 +1180,22 @@ color: #2FC5B3;
               <layout class="QVBoxLayout" name="updateverticalLayout_4">
                <item>
                 <widget class="QLabel" name="updatelabel_3">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
                  <property name="maximumSize">
                   <size>
                    <width>16777215</width>
-                   <height>16777213</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="font">
@@ -1231,6 +1212,9 @@ color: #2FC5B3;
                  <property name="text">
                   <string>Update User's Information</string>
                  </property>
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
                 </widget>
                </item>
                <item>
@@ -1238,7 +1222,7 @@ color: #2FC5B3;
                  <property name="title">
                   <string/>
                  </property>
-                 <layout class="QVBoxLayout" name="updateverticalLayout_7">
+                 <layout class="QVBoxLayout" name="verticalLayout_12">
                   <item>
                    <widget class="QLineEdit" name="updateid">
                     <property name="minimumSize">
@@ -1405,6 +1389,9 @@ color: #2FC5B3;
                     <property name="inputMethodHints">
                      <set>Qt::ImhDigitsOnly</set>
                     </property>
+                    <property name="maxLength">
+                     <number>10</number>
+                    </property>
                     <property name="placeholderText">
                      <string>Contact Number</string>
                     </property>
@@ -1485,40 +1472,84 @@ color: #2FC5B3;
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDateTimeEdit" name="updatedate">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Poppins</family>
-                      <pointsize>12</pointsize>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-                                            padding: 10px 0px 10px 8px;</string>
-                    </property>
-                    <property name="dateTime">
-                     <datetime>
-                      <hour>0</hour>
-                      <minute>0</minute>
-                      <second>0</second>
-                      <year>2000</year>
-                      <month>1</month>
-                      <day>1</day>
-                     </datetime>
-                    </property>
-                    <property name="displayFormat">
-                     <string>yyyy/M/d h:mm AP</string>
-                    </property>
-                    <property name="calendarPopup">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
+                   <layout class="QHBoxLayout" name="horizontalLayout_12">
+                    <item>
+                     <widget class="QDateEdit" name="updateDate">
+                      <property name="font">
+                       <font>
+                        <family>Poppins</family>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">padding: 10px 0px 10px 8px;</string>
+                      </property>
+                      <property name="displayFormat">
+                       <string>yyyy/M/d</string>
+                      </property>
+                      <property name="calendarPopup">
+                       <bool>true</bool>
+                      </property>
+                      <property name="timeSpec">
+                       <enum>Qt::LocalTime</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="updatetimeSlot">
+                      <property name="font">
+                       <font>
+                        <family>Poppins</family>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QComboBox {
+padding: 10px 0px 10px 8px;
+background: #fff;
+selection-background-color: #fff;
+}
+QComboBox::item:selected {
+background: #fff;
+}</string>
+                      </property>
+                      <property name="currentText">
+                       <string/>
+                      </property>
+                      <property name="currentIndex">
+                       <number>-1</number>
+                      </property>
+                      <property name="placeholderText">
+                       <string>Choose the time slot</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>10:00AM - 11:00AM</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>11:00AM - 12:00PM</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>12:00PM - 1:00PM</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>2:00PM - 3:00PM</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>3:00PM - 4:00PM</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                   <item>
                    <layout class="QHBoxLayout" name="updatehorizontalLayout_6">
@@ -1527,6 +1558,12 @@ color: #2FC5B3;
                     </property>
                     <item>
                      <widget class="QPushButton" name="pushButton_updateBooking">
+                      <property name="minimumSize">
+                       <size>
+                        <width>88</width>
+                        <height>47</height>
+                       </size>
+                      </property>
                       <property name="font">
                        <font>
                         <family>Poppins</family>
@@ -1540,7 +1577,6 @@ color: #2FC5B3;
                        <string notr="true">QPushButton {
 background: #2FC5B3;
 color:#fff;
-padding: 12px 14px;
 border-radius:6px;
 }
 QPushButton:hover {
@@ -1658,7 +1694,6 @@ color: #2FC5B3;
                     <string notr="true">QPushButton {
 background: #2FC5B3;
 color:#fff;
-padding: 12px 14px;
 border-radius:6px;
 }
 QPushButton:hover {
@@ -1708,6 +1743,12 @@ color: #2FC5B3;
                  </item>
                  <item>
                   <widget class="QPushButton" name="pushButton">
+                   <property name="minimumSize">
+                    <size>
+                     <width>140</width>
+                     <height>47</height>
+                    </size>
+                   </property>
                    <property name="font">
                     <font>
                      <family>Poppins</family>
@@ -1718,11 +1759,9 @@ color: #2FC5B3;
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">
-QPushButton {
+                    <string notr="true">QPushButton {
 background: #ff3333;
 color:#fff;
-padding: 12px 14px;
 border-radius:6px;
 }
 QPushButton:hover {
@@ -1738,6 +1777,12 @@ color: #ff3333;
                  </item>
                  <item>
                   <widget class="QPushButton" name="pushButton_updateInfo">
+                   <property name="minimumSize">
+                    <size>
+                     <width>122</width>
+                     <height>47</height>
+                    </size>
+                   </property>
                    <property name="font">
                     <font>
                      <family>Poppins</family>
@@ -1751,7 +1796,6 @@ color: #ff3333;
                     <string notr="true">QPushButton {
 background: #2FC5B3;
 color:#fff;
-padding: 12px 14px;
 border-radius:6px;
 }
 QPushButton:hover {
@@ -1829,7 +1873,7 @@ QTableWidget {
                 <enum>Qt::SolidLine</enum>
                </property>
                <property name="sortingEnabled">
-                <bool>false</bool>
+                <bool>true</bool>
                </property>
                <property name="cornerButtonEnabled">
                 <bool>true</bool>
@@ -1853,7 +1897,13 @@ QTableWidget {
                 <bool>true</bool>
                </attribute>
                <attribute name="verticalHeaderVisible">
-                <bool>false</bool>
+                <bool>true</bool>
+               </attribute>
+               <attribute name="verticalHeaderMinimumSectionSize">
+                <number>50</number>
+               </attribute>
+               <attribute name="verticalHeaderDefaultSectionSize">
+                <number>50</number>
                </attribute>
                <attribute name="verticalHeaderShowSortIndicator" stdset="0">
                 <bool>false</bool>
@@ -1945,24 +1995,24 @@ QTableWidget {
                  </font>
                 </property>
                </column>
+               <column>
+                <property name="text">
+                 <string>Time</string>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Poppins</family>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </column>
               </widget>
              </item>
             </layout>
            </widget>
            <widget class="QWidget" name="bookingPage">
             <layout class="QVBoxLayout" name="verticalLayout_7">
-             <property name="leftMargin">
-              <number>20</number>
-             </property>
-             <property name="topMargin">
-              <number>20</number>
-             </property>
-             <property name="rightMargin">
-              <number>20</number>
-             </property>
-             <property name="bottomMargin">
-              <number>20</number>
-             </property>
              <item>
               <widget class="QLabel" name="label_10">
                <property name="font">
@@ -1979,6 +2029,120 @@ QTableWidget {
                 <string>Booked Services</string>
                </property>
               </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_13">
+               <item>
+                <widget class="QDateEdit" name="dateEdit">
+                 <property name="minimumSize">
+                  <size>
+                   <width>200</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>200</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Poppins</family>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">padding: 10px 0px 10px 8px;</string>
+                 </property>
+                 <property name="displayFormat">
+                  <string>yyyy/M/d</string>
+                 </property>
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                 <property name="timeSpec">
+                  <enum>Qt::LocalTime</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="comboBox">
+                 <property name="minimumSize">
+                  <size>
+                   <width>200</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>200</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Poppins</family>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QComboBox {
+padding: 10px 0px 10px 8px;
+background: #fff;
+selection-background-color: #fff;
+}
+QComboBox::item:selected {
+background: #fff;
+}</string>
+                 </property>
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Choose the time slot</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>10:00AM - 11:00AM</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>11:00AM - 12:00PM</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>12:00PM - 1:00PM</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>2:00PM - 3:00PM</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>3:00PM - 4:00PM</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_10">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
              </item>
              <item>
               <layout class="QGridLayout" name="gridLayout">

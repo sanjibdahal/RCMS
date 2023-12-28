@@ -5,6 +5,7 @@
 #include "loginpage.h"
 #include <QtSql>
 #include <QMessageBox>
+#include <QIntValidator>
 
 namespace Ui {
 class AdminDashboard;

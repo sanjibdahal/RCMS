@@ -11,10 +11,13 @@ AdminDashboard::AdminDashboard(QWidget *parent) :
     //ui->comboBox->setItemData(0, 0, Qt::UserRole - 1);
 
     on_dashboardBtn_clicked();
-
-    ui->date->setDateTime(QDateTime::currentDateTime());
+    ui->date->setDate(QDate::currentDate());
 
     this->setStyleSheet("QMessageBox::QLabel{font-size: 18px; color: #fff; font-weight: 400; font-family: 'Poppins';} QMessageBox::QPushButton{color: #fff; font-family: 'Poppins' } QCalendarWidget { background: #777; }");
+
+    QValidator* intValidator = new QIntValidator(this);
+    ui->phone_number->setValidator(intValidator);
+    ui->updatephone_number->setValidator(intValidator);
 
 
     QString path_to_database = QCoreApplication::applicationDirPath() + QDir::separator() + "database" + QDir::separator() + "database.db";
@@ -46,12 +49,13 @@ void AdminDashboard::refreshTable() {
     query.prepare("SELECT * FROM user_details");
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
-    ui->tableWidget->setColumnWidth(0,60);
+    ui->tableWidget->setColumnWidth(0,100);
     ui->tableWidget->setColumnWidth(1,200);
     ui->tableWidget->setColumnWidth(2,120);
     ui->tableWidget->setColumnWidth(3,200);
     ui->tableWidget->setColumnWidth(4,180);
     ui->tableWidget->setColumnWidth(5,125);
+    ui->tableWidget->setColumnWidth(6,125);
     int count_Swimming = 0, count_Sauna = 0, count_Spa = 0;
 
     if (query.exec()) {
@@ -61,13 +65,14 @@ void AdminDashboard::refreshTable() {
         {
             ui->tableWidget->insertRow(RowNumber);
             ui->tableWidget->setRowHeight(RowNumber,40);
-            ui->tableWidget->setItem(RowNumber, 0, new QTableWidgetItem(QString(query.value("id").toString())));
+            ui->tableWidget->setItem(RowNumber, 0, new QTableWidgetItem(QString("%1-%2").arg(QDate::currentDate().year()).arg(query.value("id").toString())));
             ui->tableWidget->setItem(RowNumber, 1, new QTableWidgetItem(QString(query.value("name").toString())));
             ui->tableWidget->setItem(RowNumber, 2, new QTableWidgetItem(QString(query.value("gender").toString())));
             ui->tableWidget->setItem(RowNumber, 3, new QTableWidgetItem(QString(query.value("phone_number").toString())));
             ui->tableWidget->setItem(RowNumber, 4, new QTableWidgetItem(QString(query.value("address").toString())));
             ui->tableWidget->setItem(RowNumber, 5, new QTableWidgetItem(QString(query.value("service").toString())));
             ui->tableWidget->setItem(RowNumber, 6, new QTableWidgetItem(QString(query.value("date").toString())));
+            ui->tableWidget->setItem(RowNumber, 7, new QTableWidgetItem(QString(query.value("time").toString())));
             RowNumber++;
             if (query.value("service").toString() == "Swimming") {
                 count_Swimming++;
@@ -158,8 +163,10 @@ void AdminDashboard::on_pushButton_updateInfo_clicked()
     }
     ui->stackedWidget->setCurrentIndex(2);
     int selectedRow = selectedIndexes.first().row();
+    string id = ui->tableWidget->item(selectedRow, 0)->text().toStdString();
+    id = id.substr(id.find("-") + 1);
 
-    ui->updateid->setText(ui->tableWidget->item(selectedRow, 0)->text());
+    ui->updateid->setText(QString::fromStdString(id));
     ui->updatename->setText(ui->tableWidget->item(selectedRow, 1)->text());
     ui->updatephone_number->setText(ui->tableWidget->item(selectedRow, 3)->text());
     ui->updateaddress->setText(ui->tableWidget->item(selectedRow, 4)->text());
@@ -174,13 +181,14 @@ void AdminDashboard::on_pushButton_updateInfo_clicked()
         ui->othersradioButton1->setChecked(true);
     }
     ui->updateservice->setCurrentText(ui->tableWidget->item(selectedRow, 5)->text());
-    ui->updatedate->setDateTime(QDateTime::fromString(ui->tableWidget->item(selectedRow, 6)->text(), "yyyy/M/d h:mm AP"));
+    ui->updateDate->setDate(QDate::fromString(ui->tableWidget->item(selectedRow, 6)->text(), "yyyy/M/d"));
+    ui->updatetimeSlot->setCurrentText(ui->tableWidget->item(selectedRow, 7)->text());
 }
 
 void AdminDashboard::on_pushButton_addBooking_clicked()
 {
 
-    QString name, gender, phone_number, address, service, date;
+    QString name, gender, phone_number, address, service, date, time;
 
     name = ui->name->text();
     if(ui->femaleradioButton->isChecked()) {
@@ -197,9 +205,10 @@ void AdminDashboard::on_pushButton_addBooking_clicked()
     address = ui->address->text();
     service = ui->service->currentText();
     date = ui->date->text();
+    time = ui->timeSlot->currentText();
 
 
-    qDebug() << name << gender << phone_number << address << service << date;
+    qDebug() << name << gender << phone_number << address << service << date << time;
 
     if(!DB.open()) {
         qDebug() << "Failed to open the database.";
@@ -207,17 +216,18 @@ void AdminDashboard::on_pushButton_addBooking_clicked()
     }
 
 
-    if(!name.isEmpty() && !gender.isEmpty() && !phone_number.isEmpty() && !address.isEmpty() && !service.isEmpty() && !date.isEmpty()) {
+    if(!name.isEmpty() && !gender.isEmpty() && !phone_number.isEmpty() && !address.isEmpty() && !service.isEmpty() && !date.isEmpty() && !time.isEmpty() && phone_number.length()==10) {
         QSqlQuery query;
 
-        query.prepare("INSERT INTO user_details (name, gender, phone_number, address, service, date) VALUES (:name, :gender, "
-                      ":phone_number, :address, :service, :date)");
+        query.prepare("INSERT INTO user_details (name, gender, phone_number, address, service, date, time) VALUES (:name, :gender, "
+                      ":phone_number, :address, :service, :date, :time)");
         query.bindValue(":name", name);
         query.bindValue(":gender", gender);
         query.bindValue(":phone_number", phone_number);
         query.bindValue(":address", address);
         query.bindValue(":service", service);
         query.bindValue(":date", date);
+        query.bindValue(":time", time);
 
         if (query.exec()) {
             qDebug() << "Data inserted successfully";
@@ -229,7 +239,8 @@ void AdminDashboard::on_pushButton_addBooking_clicked()
             ui->femaleradioButton->setChecked(false);
             ui->othersradioButton->setChecked(false);
             ui->service->setCurrentIndex(-1);
-            ui->date->setDateTime(QDateTime::currentDateTime());
+            ui->date->setDate(QDate::currentDate());
+            ui->timeSlot->setCurrentIndex(-1);
         } else {
             qDebug() << "Error: " << query.lastError().text();
         }
@@ -277,8 +288,9 @@ void AdminDashboard::on_pushButton_clicked()
 
     int selectedRow = selectedIndexes.first().row();
 
-    // Assuming the ID is in the first column (column 0)
-    QString idToDelete = ui->tableWidget->item(selectedRow, 0)->text();
+    string id = ui->tableWidget->item(selectedRow, 0)->text().toStdString();
+    id = id.substr(id.find("-") + 1);
+    QString idToDelete = QString::fromStdString(id);
     qDebug() << idToDelete;
 
     if (QMessageBox::question(this, "Confirm Deletion", "Are you sure you want to delete this record?",
@@ -307,7 +319,7 @@ void AdminDashboard::on_pushButton_clicked()
 
 void AdminDashboard::on_pushButton_updateBooking_clicked()
 {
-    QString name, gender, phone_number, address, service, date, id;
+    QString name, gender, phone_number, address, service, date, id, time;
 
     name = ui->updatename->text();
     if(ui->femaleradioButton1->isChecked()) {
@@ -323,9 +335,9 @@ void AdminDashboard::on_pushButton_updateBooking_clicked()
     phone_number = ui->updatephone_number->text();
     address = ui->updateaddress->text();
     service = ui->updateservice->currentText();
-    date = ui->updatedate->text();
+    date = ui->updateDate->text();
     id = ui->updateid->text();
-
+    time = ui->updatetimeSlot->currentText();
 
     if(!DB.open()) {
         qDebug() << "Failed to open the database.";
@@ -333,10 +345,10 @@ void AdminDashboard::on_pushButton_updateBooking_clicked()
     }
 
 
-    if(!name.isEmpty() && !gender.isEmpty() && !phone_number.isEmpty() && !address.isEmpty() && !service.isEmpty() && !date.isEmpty()) {
+    if(!name.isEmpty() && !gender.isEmpty() && !phone_number.isEmpty() && !address.isEmpty() && !service.isEmpty() && !date.isEmpty() && !time.isEmpty() && phone_number.length()==10) {
         QSqlQuery query;
 
-        query.prepare("UPDATE user_details SET name = :name, gender = :gender, phone_number = :phone_number, address = :address, service = :service, date = :date WHERE id = :id");
+        query.prepare("UPDATE user_details SET name = :name, gender = :gender, phone_number = :phone_number, address = :address, service = :service, date = :date, time = :time WHERE id = :id");
         query.bindValue(":name", name);
         query.bindValue(":gender", gender);
         query.bindValue(":phone_number", phone_number);
@@ -344,6 +356,7 @@ void AdminDashboard::on_pushButton_updateBooking_clicked()
         query.bindValue(":service", service);
         query.bindValue(":date", date);
         query.bindValue(":id",id);
+        query.bindValue(":time",time);
 
         if (query.exec()) {
             qDebug() << "Data updated successfully";
@@ -356,7 +369,8 @@ void AdminDashboard::on_pushButton_updateBooking_clicked()
             ui->femaleradioButton1->setChecked(false);
             ui->othersradioButton1->setChecked(false);
             ui->updateservice->setCurrentIndex(-1);
-            ui->updatedate->setDateTime(QDateTime::currentDateTime());
+            ui->updateDate->setDate(QDate::currentDate());
+            ui->updatetimeSlot->setCurrentIndex(-1);
             refreshTable();
             ui->stackedWidget->setCurrentIndex(3);
 

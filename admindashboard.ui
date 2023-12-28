@@ -19,7 +19,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background: #016559;
-font-family: 'Poppins';</string>
+        font-family: 'Poppins';</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -175,16 +175,16 @@ font-family: 'Poppins';</string>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-background: #2fc5b3;
-color:#fff;
-text-align: left;
-padding-left:20;
-border: none;
-outline: none;
-}
-QPushButton:hover {
-background: #307970;
-}</string>
+                          background: #2fc5b3;
+                          color:#fff;
+                          text-align: left;
+                          padding-left:20;
+                          border: none;
+                          outline: none;
+                          }
+                          QPushButton:hover {
+                          background: #307970;
+                          }</string>
            </property>
            <property name="text">
             <string>Dashboard</string>
@@ -233,16 +233,16 @@ background: #307970;
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-background: #2fc5b3;
-color:#fff;
-text-align: left;
-padding-left:20;
-border: none;
-outline: none;
-}
-QPushButton:hover {
-background: #307970;
-}</string>
+                          background: #2fc5b3;
+                          color:#fff;
+                          text-align: left;
+                          padding-left:20;
+                          border: none;
+                          outline: none;
+                          }
+                          QPushButton:hover {
+                          background: #307970;
+                          }</string>
            </property>
            <property name="text">
             <string>Members</string>
@@ -291,16 +291,16 @@ background: #307970;
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-background: #2fc5b3;
-color:#fff;
-text-align: left;
-padding-left:20;
-border: none;
-outline: none;
-}
-QPushButton:hover {
-background: #307970;
-}</string>
+                          background: #2fc5b3;
+                          color:#fff;
+                          text-align: left;
+                          padding-left:20;
+                          border: none;
+                          outline: none;
+                          }
+                          QPushButton:hover {
+                          background: #307970;
+                          }</string>
            </property>
            <property name="text">
             <string>Booking Management</string>
@@ -352,17 +352,17 @@ background: #307970;
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-background: #2fc5b3;
-color:#fff;
-text-align: left;
-padding-left:20;
-border: none;
-outline: none;
-}
-QPushButton:hover {
-background: #307970;
-}
-</string>
+                          background: #2fc5b3;
+                          color:#fff;
+                          text-align: left;
+                          padding-left:20;
+                          border: none;
+                          outline: none;
+                          }
+                          QPushButton:hover {
+                          background: #307970;
+                          }
+                        </string>
            </property>
            <property name="text">
             <string>Personnel Management</string>
@@ -411,16 +411,16 @@ background: #307970;
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-background: #2fc5b3;
-color:#fff;
-text-align: left;
-padding-left:20;
-border: none;
-outline: none;
-}
-QPushButton:hover {
-background: #307970;
-}</string>
+                          background: #2fc5b3;
+                          color:#fff;
+                          text-align: left;
+                          padding-left:20;
+                          border: none;
+                          outline: none;
+                          }
+                          QPushButton:hover {
+                          background: #307970;
+                          }</string>
            </property>
            <property name="text">
             <string>Log out</string>
@@ -480,7 +480,7 @@ background: #307970;
             <string notr="true">background: #fff;</string>
            </property>
            <property name="currentIndex">
-            <number>3</number>
+            <number>5</number>
            </property>
            <widget class="QWidget" name="dashboardPage">
             <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -964,13 +964,13 @@ background: #307970;
                     </property>
                     <property name="styleSheet">
                      <string notr="true">QComboBox {
-padding: 10px 0px 10px 8px;
-background: #fff;
-selection-background-color: #fff;
-}
-QComboBox::item:selected {
-background: #fff;
-}
+                                            padding: 10px 0px 10px 8px;
+                                            background: #fff;
+                                            selection-background-color: #fff;
+                                            }
+                                            QComboBox::item:selected {
+                                            background: #fff;
+                                            }
                                           </string>
                     </property>
                     <property name="currentText">
@@ -1040,13 +1040,13 @@ background: #fff;
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QComboBox {
-padding: 10px 0px 10px 8px;
-background: #fff;
-selection-background-color: #fff;
-}
-QComboBox::item:selected {
-background: #fff;
-}</string>
+                                                padding: 10px 0px 10px 8px;
+                                                background: #fff;
+                                                selection-background-color: #fff;
+                                                }
+                                                QComboBox::item:selected {
+                                                background: #fff;
+                                                }</string>
                       </property>
                       <property name="currentText">
                        <string/>
@@ -1110,15 +1110,15 @@ background: #fff;
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QPushButton {
-background: #2FC5B3;
-color:#fff;
-border-radius:6px;
-}
-QPushButton:hover {
-border: 3px solid #2FC5B3;
-background: transparent;
-color: #2FC5B3;
-}</string>
+                                                background: #2FC5B3;
+                                                color:#fff;
+                                                border-radius:6px;
+                                                }
+                                                QPushButton:hover {
+                                                border: 3px solid #2FC5B3;
+                                                background: transparent;
+                                                color: #2FC5B3;
+                                                }</string>
                       </property>
                       <property name="text">
                        <string>Add booking</string>
@@ -1506,13 +1506,13 @@ color: #2FC5B3;
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QComboBox {
-padding: 10px 0px 10px 8px;
-background: #fff;
-selection-background-color: #fff;
-}
-QComboBox::item:selected {
-background: #fff;
-}</string>
+                                                padding: 10px 0px 10px 8px;
+                                                background: #fff;
+                                                selection-background-color: #fff;
+                                                }
+                                                QComboBox::item:selected {
+                                                background: #fff;
+                                                }</string>
                       </property>
                       <property name="currentText">
                        <string/>
@@ -1576,15 +1576,15 @@ background: #fff;
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QPushButton {
-background: #2FC5B3;
-color:#fff;
-border-radius:6px;
-}
-QPushButton:hover {
-border: 3px solid #2FC5B3;
-background: transparent;
-color: #2FC5B3;
-}</string>
+                                                background: #2FC5B3;
+                                                color:#fff;
+                                                border-radius:6px;
+                                                }
+                                                QPushButton:hover {
+                                                border: 3px solid #2FC5B3;
+                                                background: transparent;
+                                                color: #2FC5B3;
+                                                }</string>
                       </property>
                       <property name="text">
                        <string>Update</string>
@@ -1693,15 +1693,15 @@ color: #2FC5B3;
                    </property>
                    <property name="styleSheet">
                     <string notr="true">QPushButton {
-background: #2FC5B3;
-color:#fff;
-border-radius:6px;
-}
-QPushButton:hover {
-border: 3px solid #2FC5B3;
-background: transparent;
-color: #2FC5B3;
-}</string>
+                                          background: #2FC5B3;
+                                          color:#fff;
+                                          border-radius:6px;
+                                          }
+                                          QPushButton:hover {
+                                          border: 3px solid #2FC5B3;
+                                          background: transparent;
+                                          color: #2FC5B3;
+                                          }</string>
                    </property>
                    <property name="text">
                     <string>Refresh Table</string>
@@ -1727,15 +1727,15 @@ color: #2FC5B3;
                    </property>
                    <property name="styleSheet">
                     <string notr="true">QPushButton {
-background: #2FC5B3;
-color:#fff;
-border-radius:6px;
-}
-QPushButton:hover {
-border: 3px solid #2FC5B3;
-background: transparent;
-color: #2FC5B3;
-}</string>
+                                          background: #2FC5B3;
+                                          color:#fff;
+                                          border-radius:6px;
+                                          }
+                                          QPushButton:hover {
+                                          border: 3px solid #2FC5B3;
+                                          background: transparent;
+                                          color: #2FC5B3;
+                                          }</string>
                    </property>
                    <property name="text">
                     <string>Add booking</string>
@@ -1761,15 +1761,15 @@ color: #2FC5B3;
                    </property>
                    <property name="styleSheet">
                     <string notr="true">QPushButton {
-background: #ff3333;
-color:#fff;
-border-radius:6px;
-}
-QPushButton:hover {
-border: 3px solid #ff3333;
-background: transparent;
-color: #ff3333;
-}</string>
+                                          background: #ff3333;
+                                          color:#fff;
+                                          border-radius:6px;
+                                          }
+                                          QPushButton:hover {
+                                          border: 3px solid #ff3333;
+                                          background: transparent;
+                                          color: #ff3333;
+                                          }</string>
                    </property>
                    <property name="text">
                     <string>Delete Record</string>
@@ -1795,15 +1795,15 @@ color: #ff3333;
                    </property>
                    <property name="styleSheet">
                     <string notr="true">QPushButton {
-background: #2FC5B3;
-color:#fff;
-border-radius:6px;
-}
-QPushButton:hover {
-border: 3px solid #2FC5B3;
-background: transparent;
-color: #2FC5B3;
-}</string>
+                                          background: #2FC5B3;
+                                          color:#fff;
+                                          border-radius:6px;
+                                          }
+                                          QPushButton:hover {
+                                          border: 3px solid #2FC5B3;
+                                          background: transparent;
+                                          color: #2FC5B3;
+                                          }</string>
                    </property>
                    <property name="text">
                     <string>Update Info</string>
@@ -1840,20 +1840,20 @@ color: #2FC5B3;
                </property>
                <property name="styleSheet">
                 <string notr="true">QHeaderView::section {
-	background-color: #2fc5b3;
-	color:#fff;
-	padding: 5px 0;
-	border: 1px solid white;
-}
-QHeaderView {
-	border: none;
-}
-QTableWidget {
-	alternate-background-color: #E4E4E4;
-	background-color: white;
-	selection-background-color:#1492E6;
-	selection-color:white;
-}</string>
+                                  background-color: #2fc5b3;
+                                  color:#fff;
+                                  padding: 5px 0;
+                                  border: 1px solid white;
+                                  }
+                                  QHeaderView {
+                                  border: none;
+                                  }
+                                  QTableWidget {
+                                  alternate-background-color: #E4E4E4;
+                                  background-color: white;
+                                  selection-background-color:#1492E6;
+                                  selection-color:white;
+                                  }</string>
                </property>
                <property name="editTriggers">
                 <set>QAbstractItemView::NoEditTriggers</set>
@@ -2089,13 +2089,13 @@ QTableWidget {
                  </property>
                  <property name="styleSheet">
                   <string notr="true">QComboBox {
-padding: 10px 0px 10px 8px;
-background: #fff;
-selection-background-color: #fff;
-}
-QComboBox::item:selected {
-background: #fff;
-}</string>
+                                      padding: 10px 0px 10px 8px;
+                                      background: #fff;
+                                      selection-background-color: #fff;
+                                      }
+                                      QComboBox::item:selected {
+                                      background: #fff;
+                                      }</string>
                  </property>
                  <property name="currentIndex">
                   <number>0</number>
@@ -2149,15 +2149,15 @@ background: #fff;
                  </property>
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
-background: #2FC5B3;
-color:#fff;
-border-radius:6px;
-}
-QPushButton:hover {
-border: 3px solid #2FC5B3;
-background: transparent;
-color: #2FC5B3;
-}</string>
+                                      background: #2FC5B3;
+                                      color:#fff;
+                                      border-radius:6px;
+                                      }
+                                      QPushButton:hover {
+                                      border: 3px solid #2FC5B3;
+                                      background: transparent;
+                                      color: #2FC5B3;
+                                      }</string>
                  </property>
                  <property name="text">
                   <string>Show bookings</string>
@@ -2203,7 +2203,7 @@ color: #2FC5B3;
                  </property>
                  <property name="styleSheet">
                   <string notr="true">background: url(:/images/spa.jpg);
-                                    border-radius: 20px;</string>
+                                      border-radius: 20px;</string>
                  </property>
                  <widget class="QWidget" name="widget_7" native="true">
                   <property name="geometry">
@@ -2234,7 +2234,7 @@ color: #2FC5B3;
                   </property>
                   <property name="styleSheet">
                    <string notr="true">background: rgba(0,0,0,0.3);
-border-radius: 20px;</string>
+                                        border-radius: 20px;</string>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_10">
                    <property name="spacing">
@@ -2263,7 +2263,7 @@ border-radius: 20px;</string>
                      </property>
                      <property name="styleSheet">
                       <string notr="true">color: #fff;
-background: transparent;</string>
+                                              background: transparent;</string>
                      </property>
                      <property name="text">
                       <string>Spa</string>
@@ -2326,7 +2326,9 @@ background: transparent;</string>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
+                        <string notr="true">background: #2FC5B3;
+                                                  border-radius: 8px; padding: 12px 18px; color:
+                                                  #fff;</string>
                        </property>
                        <property name="text">
                         <string>Booked: 0</string>
@@ -2374,7 +2376,9 @@ background: transparent;</string>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
+                        <string notr="true">background: #2FC5B3;
+                                                  border-radius: 8px; padding: 12px 18px; color:
+                                                  #fff;</string>
                        </property>
                        <property name="text">
                         <string>Remaining: 15</string>
@@ -2415,7 +2419,7 @@ background: transparent;</string>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">background: url(:/images/sauna.jpg);
-                                    border-radius: 20px;</string>
+                                      border-radius: 20px;</string>
                  </property>
                  <widget class="QWidget" name="widget_6" native="true">
                   <property name="geometry">
@@ -2446,7 +2450,7 @@ background: transparent;</string>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">background: rgba(0,0,0,0.3);
-border-radius: 20px;</string>
+                                        border-radius: 20px;</string>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_9">
                    <property name="spacing">
@@ -2475,7 +2479,7 @@ border-radius: 20px;</string>
                      </property>
                      <property name="styleSheet">
                       <string notr="true">color: #fff;
-background: transparent;</string>
+                                              background: transparent;</string>
                      </property>
                      <property name="text">
                       <string>Sauna</string>
@@ -2538,7 +2542,9 @@ background: transparent;</string>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
+                        <string notr="true">background: #2FC5B3;
+                                                  border-radius: 8px; padding: 12px 18px; color:
+                                                  #fff;</string>
                        </property>
                        <property name="text">
                         <string>Booked: 0</string>
@@ -2586,7 +2592,9 @@ background: transparent;</string>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
+                        <string notr="true">background: #2FC5B3;
+                                                  border-radius: 8px; padding: 12px 18px; color:
+                                                  #fff;</string>
                        </property>
                        <property name="text">
                         <string>Remaining: 15</string>
@@ -2627,7 +2635,7 @@ background: transparent;</string>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">background: url(:/images/swimming.jpeg);
-border-radius: 20px;</string>
+                                      border-radius: 20px;</string>
                  </property>
                  <widget class="QWidget" name="widget_5" native="true">
                   <property name="geometry">
@@ -2658,7 +2666,7 @@ border-radius: 20px;</string>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">background: rgba(0,0,0,0.3);
-border-radius: 20px;</string>
+                                        border-radius: 20px;</string>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_8">
                    <property name="spacing">
@@ -2687,7 +2695,7 @@ border-radius: 20px;</string>
                      </property>
                      <property name="styleSheet">
                       <string notr="true">color: #fff;
-background: transparent;</string>
+                                              background: transparent;</string>
                      </property>
                      <property name="text">
                       <string>Swimming Pool</string>
@@ -2750,7 +2758,9 @@ background: transparent;</string>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
+                        <string notr="true">background: #2FC5B3;
+                                                  border-radius: 8px; padding: 12px 18px; color:
+                                                  #fff;</string>
                        </property>
                        <property name="text">
                         <string>Booked: 0</string>
@@ -2798,7 +2808,9 @@ background: transparent;</string>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background: #2FC5B3; border-radius: 8px; padding: 12px 18px; color: #fff;</string>
+                        <string notr="true">background: #2FC5B3;
+                                                  border-radius: 8px; padding: 12px 18px; color:
+                                                  #fff;</string>
                        </property>
                        <property name="text">
                         <string>Remaining: 40</string>
@@ -2854,6 +2866,258 @@ background: transparent;</string>
              </item>
             </layout>
            </widget>
+           <widget class="QWidget" name="personnelPage"/>
+           <layout class="QVBoxLayout" name="pverticalLayout_5">
+            <property name="leftMargin">
+             <number>20</number>
+            </property>
+            <property name="topMargin">
+             <number>20</number>
+            </property>
+            <property name="rightMargin">
+             <number>20</number>
+            </property>
+            <property name="bottomMargin">
+             <number>20</number>
+            </property>
+            <item>
+             <layout class="QVBoxLayout" name="pverticalLayout_4">
+              <item>
+               <widget class="QLabel" name="plabel_3">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777213</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Poppins</family>
+                  <pointsize>18</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:
+                                     #000; </string>
+                </property>
+                <property name="text">
+                 <string>Welcome back, Admin</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="phorizontalLayout_4">
+                <property name="topMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="plabel_4">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>350</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Poppins</family>
+                    <pointsize>13</pointsize>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color:
+                                         #fff;
+                                         background:
+                                         #0085FF;
+                                         padding: 0 10px;</string>
+                  </property>
+                  <property name="text">
+                   <string>Total Capacity: 100</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="phorizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLabel" name="plabel_6">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>350</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Poppins</family>
+                    <pointsize>13</pointsize>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color:
+                                         #fff;
+                                         background:
+                                         #26C971;
+                                         padding: 0 10px;</string>
+                  </property>
+                  <property name="text">
+                   <string>Booked services: 31</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="phorizontalLayout_5">
+                <property name="topMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="plabel_8">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>350</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Poppins</family>
+                    <pointsize>13</pointsize>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color:
+                                         #fff;
+                                         background:
+                                         #FF6B00;
+                                         padding: 0 10px;</string>
+                  </property>
+                  <property name="text">
+                   <string>Estimated Earnings: Rs 15000</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="phorizontalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLabel" name="plabel_7">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>350</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Poppins</family>
+                    <pointsize>13</pointsize>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color:
+                                         #fff;
+                                         background:
+                                         #AD00FF;
+                                         padding: 0 10px;</string>
+                  </property>
+                  <property name="text">
+                   <string>Total Staffs: 4</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="pverticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </widget>
          </item>
         </layout>

@@ -54,7 +54,7 @@ private:
     Ui::AdminDashboard *ui;
     QSqlDatabase DB;
     int swimmingCapacity = 40;
-    int spaCapacity = 5;
+    int spaCapacity = 15;
     int saunaCapacity = 15;
 };
 

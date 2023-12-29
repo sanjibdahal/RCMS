@@ -68,6 +68,46 @@ MainWindow::MainWindow(QWidget *parent)
         qWarning() << "Failed to create table user_details"<< ":" << query.lastError().text();
     }
 
+    query.prepare("CREATE TABLE IF NOT EXISTS staff_details (id INTEGER PRIMARY KEY AUTOINCREMENT, name	TEXT NOT NULL, gender TEXT NOT NULL, "
+                  "phone_number TEXT NOT NULL, address TEXT NOT NULL, proficiency TEXT NOT NULL, dateofjoining TEXT NOT NULL);");
+
+    if (query.exec()) {
+        qDebug() << "Table staff_details created successfully.";
+    } else {
+        qWarning() << "Failed to create table user_details"<< ":" << query.lastError().text();
+    }
+    query.prepare("CREATE TABLE IF NOT EXISTS service_capacity (service TEXT NOT NULL, capacity TEXT NOT NULL);");
+
+    if (query.exec()) {
+        qDebug() << "Table service_capacity created successfully.";
+    } else {
+        qWarning() << "Failed to create table user_details"<< ":" << query.lastError().text();
+    }
+
+    QStringList services = {"Swimming", "Spa", "Sauna"};
+    int capacityList[] = {40, 15, 15};
+
+    for(int i = 0; i < services.size(); i++) {
+        query.prepare("SELECT * FROM service_capacity WHERE service = :service");
+        query.bindValue(":service", services.at(i));
+
+        if (query.exec() && query.next()) {
+            qDebug() << "AITS";
+        } else {
+            query.prepare("INSERT INTO service_capacity (service, capacity) VALUES (:service, :capacity)");
+            query.bindValue(":service", services.at(i));
+            //                query.bindValue(":password", password);
+            query.bindValue(":capacity", capacityList[i]);
+
+            if (query.exec()) {
+                qDebug() << "IS";
+            } else {
+                qDebug() << "Error: " << query.lastError().text();
+            }
+        }
+    }
+
+
     db.close();
 }
 

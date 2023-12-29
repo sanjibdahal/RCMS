@@ -264,13 +264,11 @@ bool AdminDashboard::checkCapacity(const QString &service, const QString &date, 
     }
 
     // Set the maximum capacity based on service type
+    query.prepare("SELECT * FROM service_capacity WHERE service = :service");
+    query.bindValue(":service", service);
     int maxCapacity = 0;
-    if (service == "Swimming") {
-        maxCapacity = swimmingCapacity;
-    } else if (service == "Sauna") {
-        maxCapacity = saunaCapacity;
-    } else if (service == "Spa") {
-        maxCapacity = spaCapacity;
+    if(query.exec() && query.next()) {
+        maxCapacity = query.value("capacity").toInt();
     }
 
     // checking the capacity is full or not.
@@ -291,10 +289,6 @@ void AdminDashboard::deselectedPushButton(QPushButton *button)
 {
     button->setStyleSheet("QPushButton { background: #2fc5b3; color:#fff; text-align: left; padding-left:20; border: none; outline: none; } QPushButton:hover { background: #307970; }");
 }
-
-
-
-
 
 
 void AdminDashboard::on_refreshtableBtn_clicked()
@@ -445,6 +439,24 @@ void AdminDashboard::on_showBookingsBtn_clicked()
                 count_Spa++;
             }
         }
+
+        int swimmingCapacity=0, saunaCapacity=0, spaCapacity=0;
+        query.prepare("SELECT * FROM service_capacity WHERE service = :service");
+        query.bindValue(":service", "Swimming");
+        if(query.exec() && query.next()) {
+            swimmingCapacity = query.value("capacity").toInt();
+        }
+        query.prepare("SELECT * FROM service_capacity WHERE service = :service");
+        query.bindValue(":service", "Sauna");
+        if(query.exec() && query.next()) {
+            saunaCapacity = query.value("capacity").toInt();
+        }
+        query.prepare("SELECT * FROM service_capacity WHERE service = :service");
+        query.bindValue(":service", "Spa");
+        if(query.exec() && query.next()) {
+            spaCapacity = query.value("capacity").toInt();
+        }
+
         ui->countSwimming->setText("Booked: " + QString::number(count_Swimming));
         ui->countSauna->setText("Booked: " + QString::number(count_Sauna));
         ui->countSpa->setText("Booked: " + QString::number(count_Spa));

@@ -6,8 +6,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //qDebug() << QCoreApplication::applicationDirPath();
-    //qDebug() << QCoreApplication::applicationFilePath();
     QString directoryPath = QCoreApplication::applicationDirPath() + QDir::separator() + "database";
     QString databasePath = directoryPath + QDir::separator() + "database.db";
 

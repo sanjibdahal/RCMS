@@ -13,6 +13,7 @@ AdminDashboard::AdminDashboard(QWidget *parent) :
     on_dashboardBtn_clicked();
     ui->date->setDate(QDate::currentDate());
     ui->bookDate->setDate(QDate::currentDate());
+    ui->sdate->setDate(QDate::currentDate());
 
     this->setStyleSheet("QMessageBox::QLabel{font-size: 18px; color: #fff; font-weight: 400; font-family: 'Poppins';} QMessageBox::QPushButton{color: #fff; font-family: 'Poppins' } QCalendarWidget { background: #777; }");
 
@@ -88,7 +89,7 @@ void AdminDashboard::on_logoutBtn_clicked()
     deselectedPushButton(ui->dashboardBtn);
     deselectedPushButton(ui->bookingBtn);
     deselectedPushButton(ui->membersBtn);
-    deselectedPushButton(ui->notificationsBtn);
+    deselectedPushButton(ui->miscellaneousBtn);
     selectedPushButton(ui->logoutBtn);
     LoginPage *loginpage = new LoginPage();
     loginpage->showMaximized();
@@ -102,7 +103,7 @@ void AdminDashboard::on_dashboardBtn_clicked()
     selectedPushButton(ui->dashboardBtn);
     deselectedPushButton(ui->bookingBtn);
     deselectedPushButton(ui->membersBtn);
-    deselectedPushButton(ui->notificationsBtn);
+    deselectedPushButton(ui->miscellaneousBtn);
     deselectedPushButton(ui->logoutBtn);
 }
 
@@ -114,7 +115,7 @@ void AdminDashboard::on_membersBtn_clicked()
     deselectedPushButton(ui->dashboardBtn);
     deselectedPushButton(ui->bookingBtn);
     selectedPushButton(ui->membersBtn);
-    deselectedPushButton(ui->notificationsBtn);
+    deselectedPushButton(ui->miscellaneousBtn);
     deselectedPushButton(ui->logoutBtn);
 }
 
@@ -126,7 +127,7 @@ void AdminDashboard::on_bookingBtn_clicked()
     deselectedPushButton(ui->dashboardBtn);
     selectedPushButton(ui->bookingBtn);
     deselectedPushButton(ui->membersBtn);
-    deselectedPushButton(ui->notificationsBtn);
+    deselectedPushButton(ui->miscellaneousBtn);
     deselectedPushButton(ui->logoutBtn);
 }
 
@@ -460,8 +461,276 @@ void AdminDashboard::on_showBookingsBtn_clicked()
 }
 
 
+void AdminDashboard::on_miscellaneousBtn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+    deselectedPushButton(ui->dashboardBtn);
+    deselectedPushButton(ui->bookingBtn);
+    deselectedPushButton(ui->membersBtn);
+    selectedPushButton(ui->miscellaneousBtn);
+    deselectedPushButton(ui->logoutBtn);
+    on_staffrefreshtableBtn_clicked();
+}
 
 
+void AdminDashboard::on_staffrefreshtableBtn_clicked()
+{
+    if(!DB.open()) {
+        qDebug() << "Failed to open the database.";
+        return;
+    }
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM staff_details");
+    ui->tableWidget_2->clearContents();
+    ui->tableWidget_2->setRowCount(0);
+    ui->tableWidget_2->setColumnWidth(0,100);
+    ui->tableWidget_2->setColumnWidth(1,200);
+    ui->tableWidget_2->setColumnWidth(2,120);
+    ui->tableWidget_2->setColumnWidth(3,200);
+    ui->tableWidget_2->setColumnWidth(4,180);
+    ui->tableWidget_2->setColumnWidth(5,125);
+
+    if (query.exec()) {
+        int RowNumber = 0;
+
+        while(query.next())
+        {
+            ui->tableWidget_2->insertRow(RowNumber);
+            ui->tableWidget_2->setRowHeight(RowNumber,40);
+            ui->tableWidget_2->setItem(RowNumber, 0, new QTableWidgetItem(QString("%1-%2").arg(QDate::currentDate().year()).arg(query.value("id").toString())));
+            ui->tableWidget_2->setItem(RowNumber, 1, new QTableWidgetItem(QString(query.value("name").toString())));
+            ui->tableWidget_2->setItem(RowNumber, 2, new QTableWidgetItem(QString(query.value("gender").toString())));
+            ui->tableWidget_2->setItem(RowNumber, 3, new QTableWidgetItem(QString(query.value("phone_number").toString())));
+            ui->tableWidget_2->setItem(RowNumber, 4, new QTableWidgetItem(QString(query.value("address").toString())));
+            ui->tableWidget_2->setItem(RowNumber, 5, new QTableWidgetItem(QString(query.value("proficiency").toString())));
+            ui->tableWidget_2->setItem(RowNumber, 6, new QTableWidgetItem(QString(query.value("dateofjoining").toString())));
+            RowNumber++;
+        }
+    } else {
+        // Login failed, show error message
+        qDebug() << "Data loading to table error.";
+    }
+
+    DB.close();
+}
 
 
+void AdminDashboard::on_addStaff_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
+}
+
+
+void AdminDashboard::on_deleteStaff_clicked()
+{
+    QModelIndexList selectedIndexes = ui->tableWidget_2->selectionModel()->selectedRows();
+    if (selectedIndexes.isEmpty()) {
+        qDebug() << "No row selected.";
+        QMessageBox::warning(this, "Invalid selection","No row is selected.",QMessageBox::Ok);
+        return;
+    }
+
+    int selectedRow = selectedIndexes.first().row();
+
+    string id = ui->tableWidget_2->item(selectedRow, 0)->text().toStdString();
+    id = id.substr(id.find("-") + 1);
+    QString idToDelete = QString::fromStdString(id);
+    qDebug() << idToDelete;
+
+    if (QMessageBox::question(this, "Confirm Deletion", "Are you sure you want to delete this record?",
+                              QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes) {
+        // Perform the deletion here using the ID or other identifying information
+        if (!DB.open()) {
+            qDebug() << "Failed to open the database.";
+            return;
+        }
+
+        QSqlQuery query;
+        query.prepare("DELETE FROM staff_details WHERE id = :id");
+        query.bindValue(":id", idToDelete);
+
+        if (!query.exec()) {
+            qDebug() << "Error deleting record:" << query.lastError().text();
+        }
+
+        DB.close();
+
+        // Refresh the table after deletion
+        on_staffrefreshtableBtn_clicked();
+    }
+}
+
+
+void AdminDashboard::on_updateStaff_clicked()
+{
+    QModelIndexList selectedIndexes = ui->tableWidget_2->selectionModel()->selectedRows();
+    if (selectedIndexes.isEmpty()) {
+        qDebug() << "No row selected.";
+        QMessageBox::warning(this, "Invalid selection","No row is selected.",QMessageBox::Ok);
+        return;
+    }
+    ui->stackedWidget->setCurrentIndex(7);
+    int selectedRow = selectedIndexes.first().row();
+    string id = ui->tableWidget_2->item(selectedRow, 0)->text().toStdString();
+    id = id.substr(id.find("-") + 1);
+
+    ui->supdateid->setText(QString::fromStdString(id));
+    ui->supdatename->setText(ui->tableWidget_2->item(selectedRow, 1)->text());
+    ui->supdatephone_number->setText(ui->tableWidget_2->item(selectedRow, 3)->text());
+    ui->supdateaddress->setText(ui->tableWidget_2->item(selectedRow, 4)->text());
+
+    if(ui->tableWidget_2->item(selectedRow, 2)->text() == "Male") {
+        ui->smaleradioButton1->setChecked(true);
+    }
+    else if(ui->tableWidget_2->item(selectedRow, 2)->text() == "Female") {
+        ui->sfemaleradioButton1->setChecked(true);
+    }
+    else if(ui->tableWidget_2->item(selectedRow, 2)->text() == "Others") {
+        ui->sothersradioButton1->setChecked(true);
+    }
+    ui->supdateservice->setCurrentText(ui->tableWidget_2->item(selectedRow, 5)->text());
+    ui->supdateDate->setDate(QDate::fromString(ui->tableWidget_2->item(selectedRow, 6)->text(), "yyyy/M/d"));
+}
+
+
+void AdminDashboard::on_updateCapacity_clicked()
+{
+
+}
+
+
+void AdminDashboard::on_Mservice_currentTextChanged(const QString &arg1)
+{
+
+}
+
+
+void AdminDashboard::on_s_addStaff_clicked()
+{
+    QString name, gender, phone_number, address, service, date;
+
+    name = ui->sname->text();
+    if(ui->sfemaleradioButton->isChecked()) {
+        gender = ui->sfemaleradioButton->text();
+    }
+    else if(ui->smaleradioButton->isChecked()) {
+        gender = ui->smaleradioButton->text();
+    }
+    else if(ui->sothersradioButton->isChecked()) {
+        gender = ui->sothersradioButton->text();
+    }
+
+    phone_number = ui->sphone_number->text();
+    address = ui->saddress->text();
+    service = ui->sservice->currentText();
+    date = ui->sdate->text();
+
+
+    qDebug() << name << gender << phone_number << address << service << date;
+
+    if(!DB.open()) {
+        qDebug() << "Failed to open the database.";
+        return;
+    }
+
+
+    if(!name.isEmpty() && !gender.isEmpty() && !phone_number.isEmpty() && !address.isEmpty() && !service.isEmpty() && !date.isEmpty() && phone_number.length()==10) {
+            QSqlQuery query;
+            query.prepare("INSERT INTO staff_details (name, gender, phone_number, address, proficiency, dateofjoining) VALUES (:name, :gender, "
+                          ":phone_number, :address, :proficiency, :dateofjoining)");
+            query.bindValue(":name", name);
+            query.bindValue(":gender", gender);
+            query.bindValue(":phone_number", phone_number);
+            query.bindValue(":address", address);
+            query.bindValue(":proficiency", service);
+            query.bindValue(":dateofjoining", date);
+
+            if (query.exec()) {
+                qDebug() << "Data inserted successfully";
+                QMessageBox::information(this,"Insertion Successful", "Staff inserted successfully.", QMessageBox::Ok);
+                ui->sname->clear();
+                ui->sphone_number->clear();
+                ui->saddress->clear();
+                ui->smaleradioButton->setChecked(false);
+                ui->sfemaleradioButton->setChecked(false);
+                ui->sothersradioButton->setChecked(false);
+                ui->sservice->setCurrentIndex(-1);
+                ui->sdate->setDate(QDate::currentDate());
+                on_staffrefreshtableBtn_clicked();
+                ui->stackedWidget->setCurrentIndex(5);
+            } else {
+                qDebug() << "Error: " << query.lastError().text();
+            }
+    } else {
+        QMessageBox::warning(this,"Insertion error", "All fields are required and cannot be empty.", QMessageBox::Ok);
+    }
+
+    DB.close();
+}
+
+
+void AdminDashboard::on_supdateStaff_clicked()
+{
+    QString name, gender, phone_number, address, service, date, id;
+
+    name = ui->supdatename->text();
+    if(ui->sfemaleradioButton1->isChecked()) {
+        gender = ui->sfemaleradioButton1->text();
+    }
+    else if(ui->smaleradioButton1->isChecked()) {
+        gender = ui->smaleradioButton1->text();
+    }
+    else if(ui->sothersradioButton1->isChecked()) {
+        gender = ui->sothersradioButton1->text();
+    }
+
+    phone_number = ui->supdatephone_number->text();
+    address = ui->supdateaddress->text();
+    service = ui->supdateservice->currentText();
+    date = ui->supdateDate->text();
+    id = ui->supdateid->text();
+
+    if(!DB.open()) {
+        qDebug() << "Failed to open the database.";
+        return;
+    }
+
+
+    if(!name.isEmpty() && !gender.isEmpty() && !phone_number.isEmpty() && !address.isEmpty() && !service.isEmpty() && !date.isEmpty() && phone_number.length()==10) {
+        QSqlQuery query;
+
+        query.prepare("UPDATE staff_details SET name = :name, gender = :gender, phone_number = :phone_number, address = :address, proficiency = :proficiency, dateofjoining = :dateofjoining WHERE id = :id");
+        query.bindValue(":name", name);
+        query.bindValue(":gender", gender);
+        query.bindValue(":phone_number", phone_number);
+        query.bindValue(":address", address);
+        query.bindValue(":proficiency", service);
+        query.bindValue(":dateofjoining", date);
+        query.bindValue(":id",id);
+
+        if (query.exec()) {
+                qDebug() << "Staff information updated successfully";
+                QMessageBox::information(this,"Successful", "Staff's information updated successfully.", QMessageBox::Ok);
+                ui->supdatename->clear();
+                ui->supdateid->clear();
+                ui->supdatephone_number->clear();
+                ui->supdateaddress->clear();
+                ui->smaleradioButton1->setChecked(false);
+                ui->sfemaleradioButton1->setChecked(false);
+                ui->sothersradioButton1->setChecked(false);
+                ui->supdateservice->setCurrentIndex(-1);
+                ui->supdateDate->setDate(QDate::currentDate());
+                on_staffrefreshtableBtn_clicked();
+                ui->stackedWidget->setCurrentIndex(5);
+
+        } else {
+                qDebug() << "Error: " << query.lastError().text();
+        }
+    } else {
+        QMessageBox::warning(this,"Updating error", "All fields are required and cannot be empty.", QMessageBox::Ok);
+    }
+
+    DB.close();
+}
 

@@ -50,6 +50,24 @@ private slots:
 
     bool checkCapacity(const QString& service, const QString& date, const QString& time);
 
+    void on_miscellaneousBtn_clicked();
+
+    void on_staffrefreshtableBtn_clicked();
+
+    void on_addStaff_clicked();
+
+    void on_deleteStaff_clicked();
+
+    void on_updateStaff_clicked();
+
+    void on_updateCapacity_clicked();
+
+    void on_Mservice_currentTextChanged(const QString &arg1);
+
+    void on_s_addStaff_clicked();
+
+    void on_supdateStaff_clicked();
+
 private:
     Ui::AdminDashboard *ui;
     QSqlDatabase DB;

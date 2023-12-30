@@ -9,8 +9,6 @@ AdminDashboard::AdminDashboard(QWidget *parent) :
     ui->setupUi(this);
     //ui->stackedWidget->setCurrentIndex(0);
     //ui->comboBox->setItemData(0, 0, Qt::UserRole - 1);
-
-    on_dashboardBtn_clicked();
     ui->date->setDate(QDate::currentDate());
     ui->bookDate->setDate(QDate::currentDate());
     ui->sdate->setDate(QDate::currentDate());
@@ -34,11 +32,69 @@ AdminDashboard::AdminDashboard(QWidget *parent) :
         qDebug() << "Database not connected.";
         qDebug() << "Error: " << DB.lastError();
     }
+    on_dashboardBtn_clicked();
 }
 
 AdminDashboard::~AdminDashboard()
 {
     delete ui;
+}
+
+void AdminDashboard::refreshDashboard() {
+    if(!DB.open()) {
+        qDebug() << "Failed to open the database.";
+        return;
+    }
+
+    QSqlQuery query;
+    int swimmingCapacity=0, saunaCapacity=0, spaCapacity=0, totalCapacity=0;
+    query.prepare("SELECT * FROM service_capacity WHERE service = :service");
+    query.bindValue(":service", "Swimming");
+    if(query.exec() && query.next()) {
+        swimmingCapacity = query.value("capacity").toInt();
+    }
+    query.prepare("SELECT * FROM service_capacity WHERE service = :service");
+    query.bindValue(":service", "Sauna");
+    if(query.exec() && query.next()) {
+        saunaCapacity = query.value("capacity").toInt();
+    }
+    query.prepare("SELECT * FROM service_capacity WHERE service = :service");
+    query.bindValue(":service", "Spa");
+    if(query.exec() && query.next()) {
+        spaCapacity = query.value("capacity").toInt();
+    }
+    totalCapacity = swimmingCapacity + saunaCapacity + spaCapacity;
+    ui->total_capacity->setText(QString::number(totalCapacity));
+    ui->available_services->setText("3");
+
+    QString date = QString(QDate::currentDate().toString("yyyy/M/d"));
+    qDebug() << "Date: " << date;
+    query.prepare("SELECT * FROM user_details WHERE date = :date");
+    query.bindValue(":date", date);
+    if (query.exec()) {
+        int RowNumber = 0;
+
+        while(query.next()) {
+            RowNumber++;
+        }
+        ui->booked_services->setText(QString::number(RowNumber));
+    } else {
+        qDebug() << "Data loading to table error.";
+    }
+
+    query.prepare("SELECT * FROM staff_details");
+    if (query.exec()) {
+        int RowNumber = 0;
+
+        while(query.next()) {
+            RowNumber++;
+        }
+        ui->total_staffs->setText(QString::number(RowNumber));
+    } else {
+        qDebug() << "Data loading to table error.";
+    }
+    DB.close();
+
 }
 
 void AdminDashboard::refreshTable() {
@@ -100,6 +156,7 @@ void AdminDashboard::on_logoutBtn_clicked()
 void AdminDashboard::on_dashboardBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+    refreshDashboard();
     selectedPushButton(ui->dashboardBtn);
     deselectedPushButton(ui->bookingBtn);
     deselectedPushButton(ui->membersBtn);
@@ -608,13 +665,43 @@ void AdminDashboard::on_updateStaff_clicked()
 
 void AdminDashboard::on_updateCapacity_clicked()
 {
+    if(!DB.open()) {
+        qDebug() << "Failed to open the database.";
+        return;
+    }
+    QString service;
+    int capacity;
+    service = ui->Mservice->currentText();
+    capacity = ui->capacity->text().toInt();
+    QSqlQuery query;
+    query.prepare("UPDATE service_capacity SET service = :service, capacity = :capacity WHERE service = :service");
+    query.bindValue(":service", service);
+    query.bindValue(":capacity", capacity);
+    if (query.exec()) {
+        QMessageBox::information(this,"Successful", "Service's capacity updated successfully.", QMessageBox::Ok);
+    } else {
+        qDebug() << "Error: " << query.lastError().text();
+    }
 
 }
 
 
 void AdminDashboard::on_Mservice_currentTextChanged(const QString &arg1)
 {
-
+    if(!DB.open()) {
+        qDebug() << "Failed to open the database.";
+        return;
+    }
+    QSqlQuery query;
+    query.prepare("SELECT * FROM service_capacity WHERE service = :service");
+    query.bindValue(":service", arg1);
+    int Capacity = 0;
+    if(query.exec() && query.next()) {
+        Capacity = query.value("capacity").toInt();
+    } else {
+        qDebug() << "Hi";
+    }
+    ui->capacity->setValue(Capacity);
 }
 
 

@@ -480,260 +480,298 @@
             <string notr="true">background: #fff;</string>
            </property>
            <property name="currentIndex">
-            <number>5</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="dashboardPage">
-            <layout class="QVBoxLayout" name="verticalLayout_5">
-             <property name="leftMargin">
-              <number>20</number>
+            <widget class="QLabel" name="total_staffs">
+             <property name="geometry">
+              <rect>
+               <x>41</x>
+               <y>221</y>
+               <width>46</width>
+               <height>38</height>
+              </rect>
              </property>
-             <property name="topMargin">
-              <number>20</number>
+             <property name="font">
+              <font>
+               <family>Poppins</family>
+               <pointsize>20</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
-             <property name="rightMargin">
-              <number>20</number>
+             <property name="styleSheet">
+              <string notr="true">background: transparent; color: #fff;</string>
              </property>
-             <property name="bottomMargin">
-              <number>20</number>
+             <property name="text">
+              <string>0</string>
              </property>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_4">
-               <item>
-                <widget class="QLabel" name="label_3">
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777213</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Poppins</family>
-                   <pointsize>18</pointsize>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color:
+            </widget>
+            <widget class="QLabel" name="label_4">
+             <property name="geometry">
+              <rect>
+               <x>21</x>
+               <y>61</y>
+               <width>225</width>
+               <height>225</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="images.qrc">:/images/total_staff.png</pixmap>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_6">
+             <property name="geometry">
+              <rect>
+               <x>500</x>
+               <y>61</y>
+               <width>225</width>
+               <height>225</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="images.qrc">:/images/total_capacity.png</pixmap>
+             </property>
+            </widget>
+            <widget class="QLabel" name="available_services">
+             <property name="geometry">
+              <rect>
+               <x>760</x>
+               <y>221</y>
+               <width>46</width>
+               <height>38</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Poppins</family>
+               <pointsize>20</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: transparent; color: #fff;</string>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="total_capacity">
+             <property name="geometry">
+              <rect>
+               <x>519</x>
+               <y>221</y>
+               <width>46</width>
+               <height>38</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Poppins</family>
+               <pointsize>20</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: transparent; color: #fff;</string>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="booked_services">
+             <property name="geometry">
+              <rect>
+               <x>280</x>
+               <y>221</y>
+               <width>46</width>
+               <height>38</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Poppins</family>
+               <pointsize>20</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: transparent; color: #fff;</string>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_3">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>10</y>
+               <width>281</width>
+               <height>34</height>
+              </rect>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777213</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Poppins</family>
+               <pointsize>18</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color:
                                       #000; </string>
-                 </property>
-                 <property name="text">
-                  <string>Welcome back, Admin</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_4">
-                 <property name="topMargin">
-                  <number>20</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_4">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>350</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Poppins</family>
-                     <pointsize>13</pointsize>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">color:
-                                          #fff;
-                                          background:
-                                          #0085FF;
-                                          padding: 0 10px;</string>
-                   </property>
-                   <property name="text">
-                    <string>Total Capacity: 100</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_2">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_6">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>350</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Poppins</family>
-                     <pointsize>13</pointsize>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">color:
-                                          #fff;
-                                          background:
-                                          #26C971;
-                                          padding: 0 10px;</string>
-                   </property>
-                   <property name="text">
-                    <string>Booked services: 31</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_5">
-                 <property name="topMargin">
-                  <number>20</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_8">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>350</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Poppins</family>
-                     <pointsize>13</pointsize>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">color:
-                                          #fff;
-                                          background:
-                                          #FF6B00;
-                                          padding: 0 10px;</string>
-                   </property>
-                   <property name="text">
-                    <string>Estimated Earnings: Rs 15000</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_3">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_7">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>350</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Poppins</family>
-                     <pointsize>13</pointsize>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">color:
-                                          #fff;
-                                          background:
-                                          #AD00FF;
-                                          padding: 0 10px;</string>
-                   </property>
-                   <property name="text">
-                    <string>Total Staffs: 4</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_2">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
+             </property>
+             <property name="text">
+              <string>Welcome back, Admin</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_13">
+             <property name="geometry">
+              <rect>
+               <x>260</x>
+               <y>61</y>
+               <width>225</width>
+               <height>225</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="images.qrc">:/images/booked_services.png</pixmap>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_16">
+             <property name="geometry">
+              <rect>
+               <x>740</x>
+               <y>61</y>
+               <width>225</width>
+               <height>225</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="images.qrc">:/images/available_services.png</pixmap>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_23">
+             <property name="geometry">
+              <rect>
+               <x>41</x>
+               <y>170</y>
+               <width>141</width>
+               <height>27</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Poppins</family>
+               <pointsize>14</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: transparent; color: #fff;</string>
+             </property>
+             <property name="text">
+              <string>Total Staffs</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_22">
+             <property name="geometry">
+              <rect>
+               <x>280</x>
+               <y>170</y>
+               <width>155</width>
+               <height>27</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Poppins</family>
+               <pointsize>14</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: transparent; color: #fff;</string>
+             </property>
+             <property name="text">
+              <string>Booked services</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_24">
+             <property name="geometry">
+              <rect>
+               <x>519</x>
+               <y>170</y>
+               <width>173</width>
+               <height>27</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Poppins</family>
+               <pointsize>14</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: transparent; color: #fff;</string>
+             </property>
+             <property name="text">
+              <string>Total Capacity</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label_21">
+             <property name="geometry">
+              <rect>
+               <x>760</x>
+               <y>170</y>
+               <width>181</width>
+               <height>27</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Poppins</family>
+               <pointsize>14</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: transparent; color: #fff;</string>
+             </property>
+             <property name="text">
+              <string>Available services</string>
+             </property>
+            </widget>
+            <zorder>label_4</zorder>
+            <zorder>label_6</zorder>
+            <zorder>layoutWidget</zorder>
+            <zorder>label_23</zorder>
+            <zorder>label_22</zorder>
+            <zorder>label_24</zorder>
+            <zorder>label_21</zorder>
+            <zorder>available_services</zorder>
+            <zorder>total_capacity</zorder>
+            <zorder>booked_services</zorder>
+            <zorder>total_staffs</zorder>
            </widget>
            <widget class="QWidget" name="userAddingPage">
             <layout class="QVBoxLayout" name="addverticalLayout_5">

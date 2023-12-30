@@ -68,6 +68,8 @@ private slots:
 
     void on_supdateStaff_clicked();
 
+    void refreshDashboard();
+
 private:
     Ui::AdminDashboard *ui;
     QSqlDatabase DB;

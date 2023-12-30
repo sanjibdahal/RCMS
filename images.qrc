@@ -19,5 +19,10 @@
         <file>images/spa.jpg</file>
         <file>images/logo5.png</file>
         <file>images/user-gear-solid.png</file>
+        <file>images/totalstaff.png</file>
+        <file>images/available_services.png</file>
+        <file>images/booked_services.png</file>
+        <file>images/total_capacity.png</file>
+        <file>images/total_staff.png</file>
     </qresource>
 </RCC>

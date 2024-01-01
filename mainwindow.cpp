@@ -1,12 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QString directoryPath = QCoreApplication::applicationDirPath() + QDir::separator() + "database";
+
+    QString directoryPath = QCoreApplication::applicationDirPath() + QDir::separator() + "database"; // separator -> / or \
+
     QString databasePath = directoryPath + QDir::separator() + "database.db";
 
     // Check if the directory exists
@@ -94,7 +94,6 @@ MainWindow::MainWindow(QWidget *parent)
         } else {
             query.prepare("INSERT INTO service_capacity (service, capacity) VALUES (:service, :capacity)");
             query.bindValue(":service", services.at(i));
-            //                query.bindValue(":password", password);
             query.bindValue(":capacity", capacityList[i]);
 
             if (query.exec()) {
@@ -120,6 +119,5 @@ void MainWindow::on_pushButton_clicked()
     this->hide();
     LoginPage *loginpage = new LoginPage();
     loginpage->showMaximized();
-
 }
 
